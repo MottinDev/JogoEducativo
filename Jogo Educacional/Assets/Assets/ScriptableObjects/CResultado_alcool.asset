@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c1d66de004b79c47a134fe3f5c5f846, type: 3}
   m_Name: CResultado_alcool
   m_EditorClassIdentifier: 
-  videoClip: {fileID: 0}
+  videoClip: {fileID: 32900000, guid: c185ae5f24ed3c74893f9ea02826649d, type: 3}
   options: []
   videoLoop: 0

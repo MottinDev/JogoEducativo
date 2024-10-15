@@ -179,7 +179,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "op\xE7\xE3o 2"
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -206,8 +206,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 23
+  m_fontSizeBase: 23
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 0
@@ -255,7 +255,7 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 64750478}
-  m_CullTransparentMesh: 1
+  m_CullTransparentMesh: 0
 --- !u!1 &81318458
 GameObject:
   m_ObjectHideFlags: 0
@@ -375,7 +375,7 @@ VideoPlayer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 94234853}
   m_Enabled: 1
-  m_VideoClip: {fileID: 32900000, guid: 7fbe0eb424c2f644e83aa172c8956f5b, type: 3}
+  m_VideoClip: {fileID: 32900000, guid: 48c638f0d744c4948bb9d333e6782c0b, type: 3}
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
   m_TargetCamera: {fileID: 0}
@@ -648,7 +648,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Op\xE7\xE3o 3"
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -724,7 +724,7 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 461061456}
-  m_CullTransparentMesh: 1
+  m_CullTransparentMesh: 0
 --- !u!1 &706311379
 GameObject:
   m_ObjectHideFlags: 0
@@ -895,8 +895,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 6, y: 18}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 0.00012207, y: 282.99997}
+  m_SizeDelta: {x: 219.62, y: 59.76}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &756278624
 MonoBehaviour:
@@ -942,7 +942,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1206708034}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: VideoManager, Assembly-CSharp
         m_MethodName: PlayNextVideo
         m_Mode: 3
@@ -974,8 +974,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 10772dce6db05934596c5d1779092578, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -1028,8 +1028,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 9, y: -106}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 527, y: 282.99997}
+  m_SizeDelta: {x: 219.62, y: 59.76}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &796826366
 MonoBehaviour:
@@ -1075,7 +1075,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1206708034}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: VideoManager, Assembly-CSharp
         m_MethodName: PlayNextVideo
         m_Mode: 3
@@ -1107,8 +1107,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: f17c288d9161a134c88a0d53a20e0d85, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -1161,8 +1161,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 6, y: 138}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: -527, y: 283}
+  m_SizeDelta: {x: 219.62, y: 59.76}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &875696753
 MonoBehaviour:
@@ -1208,7 +1208,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1206708034}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: VideoManager, Assembly-CSharp
         m_MethodName: PlayNextVideo
         m_Mode: 3
@@ -1240,8 +1240,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 5d26b11228743524a86810143028fd56, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -1338,7 +1338,7 @@ GameObject:
   - component: {fileID: 1206708037}
   - component: {fileID: 1206708036}
   - component: {fileID: 1206708035}
-  - component: {fileID: 1206708034}
+  - component: {fileID: 1206708039}
   m_Layer: 5
   m_Name: VideoCanvas
   m_TagString: Untagged
@@ -1346,26 +1346,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1206708034
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1206708033}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c029c7d8713b24d4bb7efb65ab3b6424, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  videoPlayer: {fileID: 94234854}
-  videoClip: {fileID: 11400000, guid: 8545c7f3620eaad448c24e53c7dc7579, type: 2}
-  nextButton: {fileID: 1976165368}
-  previousButton: {fileID: 1725226950}
-  optionsButton:
-  - {fileID: 875696753}
-  - {fileID: 756278624}
-  - {fileID: 796826366}
 --- !u!114 &1206708035
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1454,6 +1434,25 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1206708039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1206708033}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84bbd2fe99aae9a49bf5bce2a28c1446, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  videoPlayer: {fileID: 94234854}
+  videoClip: {fileID: 11400000, guid: 8545c7f3620eaad448c24e53c7dc7579, type: 2}
+  optionsButton:
+  - {fileID: 875696753}
+  - {fileID: 756278624}
+  - {fileID: 796826366}
+  nextButton: {fileID: 1976165368}
 --- !u!1 &1725226949
 GameObject:
   m_ObjectHideFlags: 0
@@ -1619,7 +1618,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1874910225}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
@@ -1632,7 +1631,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "op\xE7\xE3o 1"
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1659,8 +1658,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 23
+  m_fontSizeBase: 23
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 0
@@ -1772,7 +1771,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1206708034}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: VideoManager, Assembly-CSharp
         m_MethodName: PlayNextVideo
         m_Mode: 3

@@ -12,9 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c1d66de004b79c47a134fe3f5c5f846, type: 3}
   m_Name: CResultado_comer
   m_EditorClassIdentifier: 
-  videoClip: {fileID: 0}
+  videoClip: {fileID: 32900000, guid: d8f44c6a481b4cb4ea175e8e77266c98, type: 3}
   options: []
   videoLoop: 0
-  optionSequence1: []
-  optionSequence2: []
-  optionSequence3: []

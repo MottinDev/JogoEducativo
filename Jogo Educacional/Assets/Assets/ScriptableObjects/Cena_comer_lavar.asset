@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c1d66de004b79c47a134fe3f5c5f846, type: 3}
   m_Name: Cena_comer_lavar
   m_EditorClassIdentifier: 
-  videoClip: {fileID: 0}
-  options: []
+  videoClip: {fileID: 32900000, guid: 1b5b4816f76ad974abe314f0a5175237, type: 3}
+  options:
+  - {fileID: 11400000, guid: 050e86a1c9bf3a34e8dce85bbdfef985, type: 2}
   videoLoop: 0

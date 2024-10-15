@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   videoClip: {fileID: 32900000, guid: 4a3b9ab3e8643404ca0d8b6afb3e3107, type: 3}
   options:
-  - {fileID: 11400000, guid: ebc01607bfa292444bfdbe5263951d37, type: 2}
   - {fileID: 11400000, guid: d2902c02520e89c4b88c7b04c149c410, type: 2}
+  - {fileID: 11400000, guid: ebc01607bfa292444bfdbe5263951d37, type: 2}
   - {fileID: 11400000, guid: fb7881c29320e5f45958a95fab44b726, type: 2}
   videoLoop: 0

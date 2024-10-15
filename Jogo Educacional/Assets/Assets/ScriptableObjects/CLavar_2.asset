@@ -12,9 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c1d66de004b79c47a134fe3f5c5f846, type: 3}
   m_Name: CLavar_2
   m_EditorClassIdentifier: 
-  videoClip: {fileID: 0}
-  options: []
+  videoClip: {fileID: 32900000, guid: 788b62ca801dbfe41a5f7af619c6fd22, type: 3}
+  options:
+  - {fileID: 11400000, guid: 8e11257558adcbc48a8648d90d6a91e1, type: 2}
   videoLoop: 0
-  optionSequence1: []
-  optionSequence2: []
-  optionSequence3: []

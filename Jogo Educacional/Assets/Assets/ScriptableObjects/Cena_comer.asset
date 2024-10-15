@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: Cena_comer
   m_EditorClassIdentifier: 
   videoClip: {fileID: 32900000, guid: 1b5b4816f76ad974abe314f0a5175237, type: 3}
-  options: []
+  options:
+  - {fileID: 11400000, guid: ae519617384b8c642ab8393c1dabb3f0, type: 2}
   videoLoop: 0
