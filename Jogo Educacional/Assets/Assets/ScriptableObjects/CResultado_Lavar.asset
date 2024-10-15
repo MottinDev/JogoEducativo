@@ -15,3 +15,4 @@ MonoBehaviour:
   videoClip: {fileID: 32900000, guid: 48c638f0d744c4948bb9d333e6782c0b, type: 3}
   options: []
   videoLoop: 0
+  legenda: {fileID: 21300000, guid: a8604bb75b63b5447ab8a1516c03b5dc, type: 3}

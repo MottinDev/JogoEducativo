@@ -9,6 +9,7 @@ public class VideoManagerTeste : MonoBehaviour
     public VideosSO videoClip;          // The current VideosSO object containing the video and options
     public Button[] optionsButton;      // Array of buttons for player choices
     public Button nextButton;           // Botão para pular para o próximo vídeo (apenas para teste)
+    public Image legenda;
 
     void Start()
     {
@@ -61,6 +62,21 @@ public class VideoManagerTeste : MonoBehaviour
 
         // Play the initial video
         PlayCurrentVideo();
+
+        //-----------------------------
+        
+    }
+
+    void ShowSubtitle()
+    {
+        if ( videoClip.legenda == null)
+        {
+            legenda.enabled = false;
+            return;   
+        }
+        legenda.enabled = true;
+        legenda.sprite = videoClip.legenda;
+        legenda.overrideSprite = videoClip.legenda;
     }
 
     // Plays the current video
@@ -70,6 +86,7 @@ public class VideoManagerTeste : MonoBehaviour
         {
             videoPlayer.clip = videoClip.videoClip;
             videoPlayer.Play();
+            ShowSubtitle();
         }
         else
         {
