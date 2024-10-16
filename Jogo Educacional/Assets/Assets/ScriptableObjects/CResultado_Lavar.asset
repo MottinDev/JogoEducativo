@@ -16,3 +16,4 @@ MonoBehaviour:
   options: []
   videoLoop: 0
   legenda: {fileID: 21300000, guid: a8604bb75b63b5447ab8a1516c03b5dc, type: 3}
+  resultado: {fileID: 21300000, guid: 32e10b04b0f9ef94e91ab2ba3972ad58, type: 3}

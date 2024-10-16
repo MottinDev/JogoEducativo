@@ -6,10 +6,11 @@ using System.Collections.Generic;
 public class VideoManagerTeste : MonoBehaviour
 {
     public VideoPlayer videoPlayer;     // VideoPlayer component to play videos
-    public VideosSO videoClip;          // The current VideosSO object containing the video and options
+    public VideosSO videoSO;          // The current VideosSO object containing the video and options
     public Button[] optionsButton;      // Array of buttons for player choices
     public Button nextButton;           // Botão para pular para o próximo vídeo (apenas para teste)
     public Image legenda;
+    public Image result;
 
     void Start()
     {
@@ -21,7 +22,7 @@ public class VideoManagerTeste : MonoBehaviour
         }
 
         // Validate that videoClip is assigned
-        if (videoClip == null)
+        if (videoSO == null)
         {
             Debug.LogError("VideoClip (VideosSO) is not assigned in the inspector.");
             return;
@@ -33,17 +34,7 @@ public class VideoManagerTeste : MonoBehaviour
         // Disable options buttons at the start
         if (optionsButton != null && optionsButton.Length > 0)
         {
-            foreach (Button btn in optionsButton)
-            {
-                if (btn != null)
-                {
-                    btn.gameObject.SetActive(false);
-                }
-                else
-                {
-                    Debug.LogWarning("One of the buttons in optionsButton array is null.");
-                }
-            }
+            ShowButtons();
         }
         else
         {
@@ -67,24 +58,44 @@ public class VideoManagerTeste : MonoBehaviour
         
     }
 
+    void ShowButtons()
+    {
+        foreach (Button btn in optionsButton)
+        {
+            if (btn != null)
+            {
+                btn.gameObject.SetActive(false);
+            }
+            else
+            {
+                Debug.LogWarning("One of the buttons in optionsButton array is null.");
+            }
+        }
+    }
+
     void ShowSubtitle()
     {
-        if ( videoClip.legenda == null)
+        if ( videoSO.legenda == null)
         {
             legenda.enabled = false;
             return;   
         }
         legenda.enabled = true;
-        legenda.sprite = videoClip.legenda;
-        legenda.overrideSprite = videoClip.legenda;
+        legenda.sprite = videoSO.legenda;
+    }
+
+    void ShowResult()
+    {
+        result.sprite = videoSO.resultado;
+        result.gameObject.SetActive(true);
     }
 
     // Plays the current video
     void PlayCurrentVideo()
     {
-        if (videoClip != null && videoClip.videoClip != null)
+        if (videoSO != null && videoSO.videoClip != null)
         {
-            videoPlayer.clip = videoClip.videoClip;
+            videoPlayer.clip = videoSO.videoClip;
             videoPlayer.Play();
             ShowSubtitle();
         }
@@ -97,18 +108,18 @@ public class VideoManagerTeste : MonoBehaviour
     // Called when the video finishes playing
     void OnVideoFinished(VideoPlayer vp)
     {
-        if (videoClip == null)
+        if (videoSO == null)
         {
             Debug.LogError("VideoClip is null.");
             return;
         }
 
-        if (videoClip.options != null && videoClip.options.Count > 0)
+        if (videoSO.options != null && videoSO.options.Count > 0)
         {
-            if (videoClip.options.Count == 1)
+            if (videoSO.options.Count == 1)
             {
                 // Only one option; automatically play the next video
-                videoClip = videoClip.options[0];
+                videoSO = videoSO.options[0];
                 PlayCurrentVideo();
             }
             else
@@ -122,6 +133,15 @@ public class VideoManagerTeste : MonoBehaviour
             // No more videos; end of sequence
             Debug.Log("End of video sequence.");
         }
+
+        if (videoSO.resultado != null)
+        {
+            ShowResult();
+        }
+        else
+        {
+            result.gameObject.SetActive(false);
+        }
     }
 
     // Displays option buttons for player choices
@@ -133,7 +153,7 @@ public class VideoManagerTeste : MonoBehaviour
             return;
         }
 
-        if (videoClip == null || videoClip.options == null)
+        if (videoSO == null || videoSO.options == null)
         {
             Debug.LogError("VideoClip or its options are null.");
             return;
@@ -142,7 +162,7 @@ public class VideoManagerTeste : MonoBehaviour
         // Enable options buttons and assign appropriate video clips
         for (int i = 0; i < optionsButton.Length; i++)
         {
-            if (i < videoClip.options.Count)
+            if (i < videoSO.options.Count)
             {
                 if (optionsButton[i] != null)
                 {
@@ -184,11 +204,11 @@ public class VideoManagerTeste : MonoBehaviour
         }
 
         // Validate option index and play the selected video
-        if (videoClip != null && videoClip.options != null)
+        if (videoSO != null && videoSO.options != null)
         {
-            if (optionIndex >= 0 && optionIndex < videoClip.options.Count)
+            if (optionIndex >= 0 && optionIndex < videoSO.options.Count)
             {
-                videoClip = videoClip.options[optionIndex];
+                videoSO = videoSO.options[optionIndex];
                 PlayCurrentVideo();
             }
             else
