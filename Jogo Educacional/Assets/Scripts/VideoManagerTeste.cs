@@ -5,6 +5,7 @@ using System.Collections.Generic;
 
 public class VideoManagerTeste : MonoBehaviour
 {
+    public AudioSource audioSource;
     public VideoPlayer videoPlayer;     // VideoPlayer component to play videos
     public VideosSO videoSO;          // The current VideosSO object containing the video and options
     public Button[] optionsButton;      // Array of buttons for player choices
@@ -90,6 +91,11 @@ public class VideoManagerTeste : MonoBehaviour
         result.gameObject.SetActive(true);
     }
 
+    void PlayAudio(AudioClip audioClip)
+    {
+        audioSource.PlayOneShot(audioClip);
+    }
+
     // Plays the current video
     void PlayCurrentVideo()
     {
@@ -98,6 +104,10 @@ public class VideoManagerTeste : MonoBehaviour
             videoPlayer.clip = videoSO.videoClip;
             videoPlayer.Play();
             ShowSubtitle();
+            if (videoSO.audioClip != null)
+            {
+                PlayAudio(videoSO.audioClip);
+            }
         }
         else
         {
@@ -130,17 +140,16 @@ public class VideoManagerTeste : MonoBehaviour
         }
         else
         {
+            if (videoSO.resultado != null)
+            {
+                ShowResult();
+            }
+            else
+            {
+                result.gameObject.SetActive(false);
+            }
             // No more videos; end of sequence
             Debug.Log("End of video sequence.");
-        }
-
-        if (videoSO.resultado != null)
-        {
-            ShowResult();
-        }
-        else
-        {
-            result.gameObject.SetActive(false);
         }
     }
 

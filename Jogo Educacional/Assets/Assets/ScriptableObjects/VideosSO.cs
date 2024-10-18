@@ -11,5 +11,5 @@ public class VideosSO : ScriptableObject
     public bool videoLoop;                    // Indica se o vídeo deve ser reproduzido em loop
     public Sprite legenda;
     public Sprite resultado;
-
+    public AudioClip audioClip;
 }

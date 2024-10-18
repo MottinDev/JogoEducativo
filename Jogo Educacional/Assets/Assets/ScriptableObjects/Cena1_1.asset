@@ -17,3 +17,5 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 064bf1f09f436224c8617426900c7bc9, type: 2}
   videoLoop: 1
   legenda: {fileID: 21300000, guid: 781d298ff7052064c8222adda3006b6f, type: 3}
+  resultado: {fileID: 0}
+  audioClip: {fileID: 8300000, guid: 32a8a7c6a72b34449a6b7f789758bc01, type: 3}
