@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   videoClip: {fileID: 32900000, guid: c185ae5f24ed3c74893f9ea02826649d, type: 3}
   options: []
+  prevVideo: {fileID: 11400000, guid: 4d155509f152d3d46ae503d5c8528ef2, type: 2}
   videoLoop: 0
   legenda: {fileID: 21300000, guid: 1f3279c9e3afa94468cf67a2dced0deb, type: 3}
   resultado: {fileID: 21300000, guid: a47b283c07207cf47a760355c2148328, type: 3}

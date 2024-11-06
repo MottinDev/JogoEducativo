@@ -868,12 +868,12 @@ GameObject:
   - component: {fileID: 467975711}
   - component: {fileID: 467975710}
   m_Layer: 5
-  m_Name: btnRepeat
+  m_Name: btnRestart
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &467975709
 RectTransform:
   m_ObjectHideFlags: 0
@@ -937,19 +937,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 467975711}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: VideoManager, Assembly-CSharp
-        m_MethodName: PlayNextVideo
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &467975711
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1040,6 +1028,8 @@ MonoBehaviour:
   - {fileID: 756278624}
   - {fileID: 796826366}
   nextButton: {fileID: 1976165368}
+  prevButton: {fileID: 1725226950}
+  restartButton: {fileID: 467975710}
   legenda: {fileID: 916754078}
   result: {fileID: 1723112411}
 --- !u!1 &706311379
@@ -1835,7 +1825,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Repeat
+  m_text: Restart
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2230,7 +2220,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1725226950
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2613,7 +2603,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1976165368
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2657,19 +2647,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1976165369}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: VideoManager, Assembly-CSharp
-        m_MethodName: PlayNextVideo
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1976165369
 MonoBehaviour:
   m_ObjectHideFlags: 0

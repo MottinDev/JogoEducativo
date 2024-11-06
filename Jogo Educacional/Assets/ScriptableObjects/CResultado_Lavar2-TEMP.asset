@@ -15,6 +15,7 @@ MonoBehaviour:
   videoClip: {fileID: 32900000, guid: 48c638f0d744c4948bb9d333e6782c0b, type: 3}
   options:
   - {fileID: 11400000, guid: f9f31ec111ff4064186b227d73d539e8, type: 2}
+  prevVideo: {fileID: 11400000, guid: 050e86a1c9bf3a34e8dce85bbdfef985, type: 2}
   videoLoop: 0
   legenda: {fileID: 21300000, guid: a8604bb75b63b5447ab8a1516c03b5dc, type: 3}
   resultado: {fileID: 0}

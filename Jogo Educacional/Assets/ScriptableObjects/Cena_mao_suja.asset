@@ -17,4 +17,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d2902c02520e89c4b88c7b04c149c410, type: 2}
   - {fileID: 11400000, guid: ebc01607bfa292444bfdbe5263951d37, type: 2}
   - {fileID: 11400000, guid: fb7881c29320e5f45958a95fab44b726, type: 2}
+  prevVideo: {fileID: 11400000, guid: 7787e38efb0cea64aaa05e0b03ebcdbe, type: 2}
   videoLoop: 0
+  legenda: {fileID: 0}
+  resultado: {fileID: 0}
+  audioClip: {fileID: 0}
