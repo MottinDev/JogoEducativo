@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: CResultado_Lavar
   m_EditorClassIdentifier: 
   videoClip: {fileID: 32900000, guid: 48c638f0d744c4948bb9d333e6782c0b, type: 3}
-  options: []
+  options:
+  - {fileID: 11400000, guid: b44efec17789c284aad5b1086fd235f5, type: 2}
   videoLoop: 0
   legenda: {fileID: 21300000, guid: a8604bb75b63b5447ab8a1516c03b5dc, type: 3}
   resultado: {fileID: 21300000, guid: 32e10b04b0f9ef94e91ab2ba3972ad58, type: 3}

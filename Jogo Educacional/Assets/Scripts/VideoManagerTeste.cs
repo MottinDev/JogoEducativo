@@ -93,7 +93,13 @@ public class VideoManagerTeste : MonoBehaviour
 
     void PlayAudio(AudioClip audioClip)
     {
-        audioSource.PlayOneShot(audioClip);
+        audioSource.clip = audioClip;
+        audioSource.Play();
+    }
+
+    void StopAudio()
+    {
+        audioSource.Stop();
     }
 
     // Plays the current video
@@ -118,6 +124,8 @@ public class VideoManagerTeste : MonoBehaviour
     // Called when the video finishes playing
     void OnVideoFinished(VideoPlayer vp)
     {
+        //StopAudio();
+
         if (videoSO == null)
         {
             Debug.LogError("VideoClip is null.");

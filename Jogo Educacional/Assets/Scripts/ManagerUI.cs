@@ -23,5 +23,8 @@ public class ManagerUI : MonoBehaviour
         SceneManager.LoadScene(index);
     }
 
-
+    public void ReiniciarFase()
+    {
+        SceneManager.LoadScene(1);
+    }
 }
