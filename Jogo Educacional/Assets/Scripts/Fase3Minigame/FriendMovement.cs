@@ -4,12 +4,30 @@ using UnityEngine;
 
 public class FriendMovement : MonoBehaviour
 {
-    Rigidbody2D rb2d;
-    [SerializeField] private float force;
-    private void Awake()
+    [SerializeField] private int health;
+    [SerializeField] private int takeDamage = 1;
+    [SerializeField] private float velocity;
+    private void Update()
     {
-        rb2d = GetComponent<Rigidbody2D>();
-
-        rb2d.AddForce(Vector3.right * force);
+        this.transform.position += new Vector3(velocity * Time.deltaTime, 0, 0);
     }
+
+    private void Kill()
+    {
+        Destroy(this.gameObject);
+    }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            health -= takeDamage;
+            if (health < 0)
+            {
+                Kill();
+            }
+        }
+    }
+
+
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
-    [SerializeField] GameObject _Prefab;
+    public GameObject _Prefab;
     [SerializeField] private float spawnTimer;
 
     private void Awake()
@@ -16,7 +16,7 @@ public class Spawner : MonoBehaviour
     {
         while (true)
         {
-            Instantiate(_Prefab);
+            Instantiate(_Prefab,this.transform);
             yield return new WaitForSeconds(spawnTimer);
         }
     }
