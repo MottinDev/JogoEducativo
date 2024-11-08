@@ -129,6 +129,8 @@ public class VideoManager : MonoBehaviour
     // Plays the current video
     void PlayCurrentVideo()
     {
+        new WaitForSeconds(1);
+
         unPauseButton.gameObject.SetActive(false);
 
         if (videoSO.videoLoop)
