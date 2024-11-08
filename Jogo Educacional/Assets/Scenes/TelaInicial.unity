@@ -544,7 +544,7 @@ MonoBehaviour:
   - botao: {fileID: 348945454}
     spriteInicial: {fileID: 21300000, guid: 0d37850ec26334d47be65578a69e635e, type: 3}
     descricao: {fileID: 21300000, guid: 52f4478a74aa51b43b65cdb41d5b61be, type: 3}
-    indexFase: 1
+    indexFase: 2
   spriteAlterado: {fileID: 21300000, guid: 7be8b09f154024f41866d4d9225d99ef, type: 3}
   descricaoAtual: {fileID: 1105775668}
 --- !u!1 &312572572

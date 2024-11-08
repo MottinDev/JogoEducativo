@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.Video;
 using UnityEngine.UI;
-using System.Collections.Generic;
+using System.Collections;
 //using UnityEngine.UIElements;
 
 public class VideoManager : MonoBehaviour
@@ -13,8 +13,11 @@ public class VideoManager : MonoBehaviour
     public Button nextButton;           // Botão para pular para o próximo vídeo (apenas para teste)
     public Button prevButton;
     public Button restartButton;
+    public Button unPauseButton;
     public Image legenda;
     public Image result;
+
+    public bool pause;
 
     void Start()
     {
@@ -65,6 +68,8 @@ public class VideoManager : MonoBehaviour
             restartButton.onClick.AddListener(RestartVideo);
         }
 
+        if(unPauseButton != null) unPauseButton.onClick.AddListener(PlayCurrentVideo);
+
         // Play the initial video
         PlayCurrentVideo();
 
@@ -78,7 +83,6 @@ public class VideoManager : MonoBehaviour
         videoPlayer.time = 0;
         PlayCurrentVideo();
     }
-
     void ShowButtons()
     {
         foreach (Button btn in optionsButton)
@@ -125,6 +129,17 @@ public class VideoManager : MonoBehaviour
     // Plays the current video
     void PlayCurrentVideo()
     {
+        unPauseButton.gameObject.SetActive(false);
+
+        if (videoSO.videoLoop)
+        {
+            videoPlayer.isLooping = true;
+        }
+        else
+        {
+            videoPlayer.isLooping = false;
+        }
+
         if (videoSO != null && videoSO.videoClip != null)
         {
             videoPlayer.clip = videoSO.videoClip;
@@ -139,12 +154,39 @@ public class VideoManager : MonoBehaviour
         {
             Debug.LogError("VideoClip or its videoClip property is null.");
         }
+
+        if (videoSO.options != null && videoSO.options.Count > 1)
+        {
+            DisplayOptions();
+        }
+
+        StartCoroutine(WaitToPause());
     }
+
+    IEnumerator WaitToPause()
+    {
+        bool value = true;
+        while (value)
+        {
+            if (pause && videoPlayer.isPlaying && videoPlayer.isPrepared)
+            {
+                unPauseButton.gameObject.SetActive(true);
+                videoPlayer.Stop();
+                pause = false;
+
+                value = false;
+            }
+
+            yield return null;
+        }
+    }
+
+        
 
     // Called when the video finishes playing
     void OnVideoFinished(VideoPlayer vp)
     {
-        //StopAudio();
+        if(videoSO.videoLoop) return;
 
         if (videoSO == null)
         {
@@ -158,6 +200,7 @@ public class VideoManager : MonoBehaviour
             {
                 // Only one option; automatically play the next video
                 videoSO = videoSO.options[0];
+                pause = videoSO.videoPause;
                 PlayCurrentVideo();
             }
             else

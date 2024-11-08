@@ -10,6 +10,7 @@ public class VideosSO : ScriptableObject
     public List<VideosSO> options;            // Lista de opções (nós filhos)
     public VideosSO prevVideo;                 // Video anterior
     public bool videoLoop;                    // Indica se o vídeo deve ser reproduzido em loop
+    public bool videoPause;
     public Sprite legenda;
     public Sprite resultado;
     public AudioClip audioClip;

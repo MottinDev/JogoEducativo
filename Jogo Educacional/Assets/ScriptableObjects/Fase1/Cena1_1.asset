@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c1d66de004b79c47a134fe3f5c5f846, type: 3}
+  m_Name: Cena1_1
+  m_EditorClassIdentifier: 
+  videoClip: {fileID: 32900000, guid: 48c638f0d744c4948bb9d333e6782c0b, type: 3}
+  options:
+  - {fileID: 11400000, guid: 064bf1f09f436224c8617426900c7bc9, type: 2}
+  prevVideo: {fileID: 0}
+  videoLoop: 0
+  legenda: {fileID: 21300000, guid: 781d298ff7052064c8222adda3006b6f, type: 3}
+  resultado: {fileID: 0}
+  audioClip: {fileID: 8300000, guid: 32a8a7c6a72b34449a6b7f789758bc01, type: 3}
