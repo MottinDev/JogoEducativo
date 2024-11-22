@@ -25,6 +25,21 @@ public class ManagerUI : MonoBehaviour
 
     public void ReiniciarFase()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    public void ProximaFase()
+    {
+        if(SceneManager.sceneCountInBuildSettings > SceneManager.GetActiveScene().buildIndex + 1)
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        else
+        {
+            SceneManager.LoadScene(0);
+        }
+    }
+
+    public void ExitGame()
+    {
+        Application.Quit();
     }
 }

@@ -46,7 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioSource: {fileID: 0}
   videoPlayer: {fileID: 0}
-  videoSO: {fileID: 11400000, guid: 8545c7f3620eaad448c24e53c7dc7579, type: 2}
+  videoSO: {fileID: 11400000, guid: 0d7600e9d135162418112825da74e236, type: 2}
   optionsButton:
   - {fileID: 0}
   - {fileID: 0}
@@ -54,5 +54,7 @@ MonoBehaviour:
   nextButton: {fileID: 0}
   prevButton: {fileID: 0}
   restartButton: {fileID: 0}
+  unPauseButton: {fileID: 0}
   legenda: {fileID: 0}
   result: {fileID: 0}
+  pause: 0

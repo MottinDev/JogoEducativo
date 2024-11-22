@@ -122,6 +122,17 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &63590460 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8951448941557415516, guid: b3fa5021929a9aa428dcc6138553e531, type: 3}
+  m_PrefabInstance: {fileID: 2154498130721186910}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &81318458
 GameObject:
   m_ObjectHideFlags: 0
@@ -347,6 +358,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1215075778 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2622191063274342657, guid: b3fa5021929a9aa428dcc6138553e531, type: 3}
+  m_PrefabInstance: {fileID: 2154498130721186910}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1344390421
 GameObject:
   m_ObjectHideFlags: 0
@@ -518,11 +540,19 @@ PrefabInstance:
       propertyPath: m_Name
       value: VideoCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 3477033686457020987, guid: b3fa5021929a9aa428dcc6138553e531, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3512570043139416419, guid: b3fa5021929a9aa428dcc6138553e531, type: 3}
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 81318459}
     - target: {fileID: 6389093624830232936, guid: b3fa5021929a9aa428dcc6138553e531, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1344390422}
+    - target: {fileID: 8951448941557415516, guid: b3fa5021929a9aa428dcc6138553e531, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1344390422}
@@ -645,6 +675,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 916754078}
     - target: {fileID: 6617580840886616564, guid: ee0cce4e4ddd7d94c9f24f9369135fb6, type: 3}
+      propertyPath: videoSO
+      value: 
+      objectReference: {fileID: 11400000, guid: 9b7a9378de9cad342a881efc136fb4b1, type: 2}
+    - target: {fileID: 6617580840886616564, guid: ee0cce4e4ddd7d94c9f24f9369135fb6, type: 3}
+      propertyPath: managerUI
+      value: 
+      objectReference: {fileID: 1344390422}
+    - target: {fileID: 6617580840886616564, guid: ee0cce4e4ddd7d94c9f24f9369135fb6, type: 3}
       propertyPath: nextButton
       value: 
       objectReference: {fileID: 1976165368}
@@ -664,6 +702,14 @@ PrefabInstance:
       propertyPath: restartButton
       value: 
       objectReference: {fileID: 467975710}
+    - target: {fileID: 6617580840886616564, guid: ee0cce4e4ddd7d94c9f24f9369135fb6, type: 3}
+      propertyPath: unPauseButton
+      value: 
+      objectReference: {fileID: 1215075778}
+    - target: {fileID: 6617580840886616564, guid: ee0cce4e4ddd7d94c9f24f9369135fb6, type: 3}
+      propertyPath: nextPhaseButton
+      value: 
+      objectReference: {fileID: 63590460}
     - target: {fileID: 6617580840886616564, guid: ee0cce4e4ddd7d94c9f24f9369135fb6, type: 3}
       propertyPath: optionsButton.Array.data[0]
       value: 

@@ -11,6 +11,8 @@ public class VideosSO : ScriptableObject
     public VideosSO prevVideo;                 // Video anterior
     public bool videoLoop;                    // Indica se o vídeo deve ser reproduzido em loop
     public bool videoPause;
+    public bool videoFinalBom;    //Indica se é o final bom;
+    public bool videoFinalRuim;     //Indica se é o final mal;
     public Sprite legenda;
     public Sprite resultado;
     public AudioClip audioClip;

@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c1d66de004b79c47a134fe3f5c5f846, type: 3}
+  m_Name: 1_FinalRuim
+  m_EditorClassIdentifier: 
+  videoClip: {fileID: 32900000, guid: d249f2dda8cbc2548a0c83f100b39daa, type: 3}
+  options: []
+  prevVideo: {fileID: 11400000, guid: 356d474b655ead241b6e5344c758c553, type: 2}
+  videoLoop: 0
+  videoPause: 0
+  videoFinalBom: 0
+  videoFinalRuim: 1
+  legenda: {fileID: 0}
+  resultado: {fileID: 0}
+  audioClip: {fileID: 0}

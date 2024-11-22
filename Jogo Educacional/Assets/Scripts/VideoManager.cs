@@ -2,7 +2,8 @@ using UnityEngine;
 using UnityEngine.Video;
 using UnityEngine.UI;
 using System.Collections;
-//using UnityEngine.UIElements;
+using Unity.VisualScripting;
+using System;
 
 public class VideoManager : MonoBehaviour
 {
@@ -14,8 +15,10 @@ public class VideoManager : MonoBehaviour
     public Button prevButton;
     public Button restartButton;
     public Button unPauseButton;
+    public Button nextPhaseButton;
     public Image legenda;
-    public Image result;
+
+    [SerializeField] ManagerUI managerUI;
 
     public bool pause;
 
@@ -37,6 +40,7 @@ public class VideoManager : MonoBehaviour
 
         // Add listener for when the video finishes playing
         videoPlayer.loopPointReached += OnVideoFinished;
+        videoPlayer.prepareCompleted += PlayCurrentVideo;
 
         // Disable options buttons at the start
         if (optionsButton != null && optionsButton.Length > 0)
@@ -68,20 +72,29 @@ public class VideoManager : MonoBehaviour
             restartButton.onClick.AddListener(RestartVideo);
         }
 
-        if(unPauseButton != null) unPauseButton.onClick.AddListener(PlayCurrentVideo);
+        //if(unPauseButton != null) unPauseButton.onClick.AddListener(PlayCurrentVideo);
+
+        if(nextPhaseButton != null) nextPhaseButton.onClick.AddListener(NextPhaseButton);
 
         // Play the initial video
-        PlayCurrentVideo();
+        videoPlayer.clip = videoSO.videoClip;
+        videoPlayer.Prepare();
 
         //-----------------------------
         
+    }
+
+    void NextPhaseButton()
+    {
+        if(videoSO.videoFinalBom) managerUI.ProximaFase();
+        if(videoSO.videoFinalRuim) managerUI.ReiniciarFase();
     }
 
     void RestartVideo()
     {
         videoPlayer.Stop();
         videoPlayer.time = 0;
-        PlayCurrentVideo();
+        PlayCurrentVideo(videoPlayer);
     }
     void ShowButtons()
     {
@@ -109,12 +122,6 @@ public class VideoManager : MonoBehaviour
         legenda.sprite = videoSO.legenda;
     }
 
-    void ShowResult()
-    {
-        result.sprite = videoSO.resultado;
-        result.gameObject.SetActive(true);
-    }
-
     void PlayAudio(AudioClip audioClip)
     {
         audioSource.clip = audioClip;
@@ -125,9 +132,8 @@ public class VideoManager : MonoBehaviour
     {
         audioSource.Stop();
     }
-
     // Plays the current video
-    void PlayCurrentVideo()
+    void PlayCurrentVideo(VideoPlayer source)
     {
         new WaitForSeconds(1);
 
@@ -142,9 +148,21 @@ public class VideoManager : MonoBehaviour
             videoPlayer.isLooping = false;
         }
 
+        if(videoSO.videoFinalBom || videoSO.videoFinalRuim)
+        {
+            nextPhaseButton.gameObject.SetActive(true);
+        }
+        else
+        {
+            nextPhaseButton.gameObject.SetActive(false);
+        }
+
         if (videoSO != null && videoSO.videoClip != null)
         {
-            videoPlayer.clip = videoSO.videoClip;
+            //videoPlayer.clip = videoSO.videoClip;
+            //videoPlayer.Prepare();
+
+
             videoPlayer.Play();
             ShowSubtitle();
             if (videoSO.audioClip != null)
@@ -198,12 +216,15 @@ public class VideoManager : MonoBehaviour
 
         if (videoSO.options != null && videoSO.options.Count > 0)
         {
+            nextPhaseButton.gameObject.SetActive(false);
             if (videoSO.options.Count == 1)
             {
                 // Only one option; automatically play the next video
                 videoSO = videoSO.options[0];
                 pause = videoSO.videoPause;
-                PlayCurrentVideo();
+                //PlayCurrentVideo(videoPlayer);
+                videoPlayer.clip = videoSO.videoClip;
+                videoPlayer.Prepare();
             }
             else
             {
@@ -213,14 +234,8 @@ public class VideoManager : MonoBehaviour
         }
         else
         {
-            if (videoSO.resultado != null)
-            {
-                ShowResult();
-            }
-            else
-            {
-                result.gameObject.SetActive(false);
-            }
+            
+            
             // No more videos; end of sequence
             Debug.Log("End of video sequence.");
         }
@@ -291,7 +306,10 @@ public class VideoManager : MonoBehaviour
             if (optionIndex >= 0 && optionIndex < videoSO.options.Count)
             {
                 videoSO = videoSO.options[optionIndex];
-                PlayCurrentVideo();
+                //PlayCurrentVideo(videoPlayer);
+                videoPlayer.clip = videoSO.videoClip;
+                videoPlayer.Prepare();
+
             }
             else
             {
@@ -309,7 +327,9 @@ public class VideoManager : MonoBehaviour
         if (videoSO.prevVideo == null) return;
 
         videoSO = videoSO.prevVideo;
-        PlayCurrentVideo();
+        // PlayCurrentVideo(videoPlayer);
+        videoPlayer.clip = videoSO.videoClip;
+        videoPlayer.Prepare();
     }
 
     // Skip to the next video without waiting for it to end (testing only)
@@ -320,5 +340,20 @@ public class VideoManager : MonoBehaviour
             videoPlayer.Stop();
             OnVideoFinished(videoPlayer);  // Simulate the video finishing to advance to the next one
         }
+    }
+
+    IEnumerator WaitVideo()
+    {
+        videoPlayer.clip = videoSO.videoClip;
+        
+
+        while (!videoPlayer.isPrepared){}
+
+        //PlayCurrentVideo(videoPlayer);
+
+        videoPlayer.clip = videoSO.videoClip;
+        videoPlayer.Prepare();
+
+        yield return null;
     }
 }
