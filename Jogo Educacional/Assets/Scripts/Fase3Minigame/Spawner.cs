@@ -6,7 +6,10 @@ public class Spawner : MonoBehaviour
 {
     public GameObject _Prefab;
     [SerializeField] private float spawnTimer;
-
+    [SerializeField] private float spawnX;
+    [SerializeField] private float spawnMinY;
+    [SerializeField] private float spawnMaxY;
+    [SerializeField] private Transform EnemieGroup;
     private void Awake()
     {
         StartCoroutine(Spaw());
@@ -16,8 +19,14 @@ public class Spawner : MonoBehaviour
     {
         while (true)
         {
-            Instantiate(_Prefab,this.transform);
-            yield return new WaitForSeconds(spawnTimer);
+            float yPos = Random.Range(spawnMinY, spawnMaxY);
+
+            Vector3 pos = new Vector3(spawnX, yPos, 0);
+
+            Instantiate(_Prefab, pos, Quaternion.identity, EnemieGroup);
+
+
+            yield return new WaitForSeconds(Random.Range(0.1f,spawnTimer));
         }
     }
 }

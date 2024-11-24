@@ -4,11 +4,13 @@ using UnityEngine.UI;
 using System.Collections;
 using Unity.VisualScripting;
 using System;
+using Unity.Mathematics;
 
 public class VideoManager : MonoBehaviour
 {
     public AudioSource audioSource;
     public VideoPlayer videoPlayer;     // VideoPlayer component to play videos
+    public VideoPlayer videoPlayer2;
     public VideosSO videoSO;          // The current VideosSO object containing the video and options
     public Button[] optionsButton;      // Array of buttons for player choices
     public Button nextButton;           // Botão para pular para o próximo vídeo (apenas para teste)
@@ -17,6 +19,8 @@ public class VideoManager : MonoBehaviour
     public Button unPauseButton;
     public Button nextPhaseButton;
     public Image legenda;
+    public int currentVideoPlayer = 0; 
+
 
     [SerializeField] ManagerUI managerUI;
 
@@ -40,7 +44,9 @@ public class VideoManager : MonoBehaviour
 
         // Add listener for when the video finishes playing
         videoPlayer.loopPointReached += OnVideoFinished;
-        videoPlayer.prepareCompleted += PlayCurrentVideo;
+        videoPlayer2.loopPointReached += OnVideoFinished;
+        //videoPlayer.prepareCompleted += PlayCurrentVideo;
+        //videoPlayer2.prepareCompleted += PlayCurrentVideo;
 
         // Disable options buttons at the start
         if (optionsButton != null && optionsButton.Length > 0)
@@ -77,12 +83,22 @@ public class VideoManager : MonoBehaviour
         if(nextPhaseButton != null) nextPhaseButton.onClick.AddListener(NextPhaseButton);
 
         // Play the initial video
-        videoPlayer.clip = videoSO.videoClip;
-        videoPlayer.Prepare();
-
+        PlayCurrentVideo();
         //-----------------------------
-        
     }
+
+    void Switch()
+    {
+        if (currentVideoPlayer == 0)
+        {
+            currentVideoPlayer = 1;
+        }
+        else
+        {
+            currentVideoPlayer = 0;
+        }
+    }
+
 
     void NextPhaseButton()
     {
@@ -94,7 +110,7 @@ public class VideoManager : MonoBehaviour
     {
         videoPlayer.Stop();
         videoPlayer.time = 0;
-        PlayCurrentVideo(videoPlayer);
+        PlayCurrentVideo();
     }
     void ShowButtons()
     {
@@ -133,19 +149,48 @@ public class VideoManager : MonoBehaviour
         audioSource.Stop();
     }
     // Plays the current video
-    void PlayCurrentVideo(VideoPlayer source)
+    void PlayCurrentVideo()
     {
-        new WaitForSeconds(1);
+        VideoPlayer source;
+
+        if (currentVideoPlayer == 0)
+        {
+            videoPlayer2.gameObject.transform.SetLocalPositionAndRotation(new Vector3(0, 0, -1001),Quaternion.identity);
+            videoPlayer.gameObject.transform.SetLocalPositionAndRotation(new Vector3(0, 0, 0), Quaternion.identity);
+            source = videoPlayer;
+            source.clip = videoSO.videoClip;
+            source.Prepare();
+            videoPlayer2.clip = videoSO.options[0].videoClip;
+            videoPlayer2.Prepare();
+            videoPlayer2.time = 0.0f;
+            videoPlayer2.Pause();
+        }
+        else
+        {
+            videoPlayer2.gameObject.transform.SetLocalPositionAndRotation(new Vector3(0, 0, 0), Quaternion.identity);
+            videoPlayer.gameObject.transform.SetLocalPositionAndRotation(new Vector3(0, 0, -1001), Quaternion.identity);
+            source = videoPlayer2;
+            source.clip = videoSO.videoClip;
+            source.Prepare();
+            videoPlayer.clip = videoSO.options[0].videoClip;
+            videoPlayer.Prepare();
+            videoPlayer.time = 0.0f;
+            videoPlayer.Pause();
+        }
+
+
+        source.time = 0;
+        //new WaitForSeconds(1);
 
         unPauseButton.gameObject.SetActive(false);
 
         if (videoSO.videoLoop)
         {
-            videoPlayer.isLooping = true;
+            source.isLooping = true;
         }
         else
         {
-            videoPlayer.isLooping = false;
+            source.isLooping = false;
         }
 
         if(videoSO.videoFinalBom || videoSO.videoFinalRuim)
@@ -159,11 +204,8 @@ public class VideoManager : MonoBehaviour
 
         if (videoSO != null && videoSO.videoClip != null)
         {
-            //videoPlayer.clip = videoSO.videoClip;
-            //videoPlayer.Prepare();
 
-
-            videoPlayer.Play();
+            source.Play();
             ShowSubtitle();
             if (videoSO.audioClip != null)
             {
@@ -175,10 +217,10 @@ public class VideoManager : MonoBehaviour
             Debug.LogError("VideoClip or its videoClip property is null.");
         }
 
-        if (videoSO.options != null && videoSO.options.Count > 1)
-        {
-            DisplayOptions();
-        }
+        //if (videoSO.options != null && videoSO.options.Count > 1)
+        //{
+        //    DisplayOptions();
+        //}
 
         StartCoroutine(WaitToPause());
     }
@@ -206,7 +248,12 @@ public class VideoManager : MonoBehaviour
     // Called when the video finishes playing
     void OnVideoFinished(VideoPlayer vp)
     {
-        if(videoSO.videoLoop) return;
+
+        Switch();
+
+        //(videoSO.videoLoop) return;
+
+        vp.Stop();
 
         if (videoSO == null)
         {
@@ -217,20 +264,42 @@ public class VideoManager : MonoBehaviour
         if (videoSO.options != null && videoSO.options.Count > 0)
         {
             nextPhaseButton.gameObject.SetActive(false);
-            if (videoSO.options.Count == 1)
-            {
-                // Only one option; automatically play the next video
+            //if (videoSO.options.Count == 1)
+            //{
                 videoSO = videoSO.options[0];
                 pause = videoSO.videoPause;
-                //PlayCurrentVideo(videoPlayer);
-                videoPlayer.clip = videoSO.videoClip;
-                videoPlayer.Prepare();
-            }
-            else
-            {
+
+                if (currentVideoPlayer == 0)
+                {
+                    if (videoSO.options != null)
+                    {
+                        videoPlayer2.clip = videoSO.options[0].videoClip;
+                        videoPlayer2.Prepare();
+                    }
+                    else
+                    {
+                        videoPlayer2.clip = null;
+                    }
+                }
+                else
+                {
+                    if (videoSO.options != null)
+                    {
+                        videoPlayer.clip = videoSO.options[0].videoClip;
+                        videoPlayer.Prepare();
+                    }
+                    else
+                    {
+                        videoPlayer.clip = null;
+                    }
+                }
+                PlayCurrentVideo();
+            //}
+            //else
+            //{
                 // Multiple options; display buttons for player interaction
-                DisplayOptions();
-            }
+            //    DisplayOptions();
+            //}
         }
         else
         {
@@ -337,7 +406,7 @@ public class VideoManager : MonoBehaviour
     {
         if (videoPlayer.isPlaying)
         {
-            videoPlayer.Stop();
+            //videoPlayer.Stop();
             OnVideoFinished(videoPlayer);  // Simulate the video finishing to advance to the next one
         }
     }

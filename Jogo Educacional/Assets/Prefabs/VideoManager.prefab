@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5926221264869479081}
   - component: {fileID: 6617580840886616564}
+  - component: {fileID: 8419949884306422110}
   m_Layer: 0
   m_Name: VideoManager
   m_TagString: Untagged
@@ -39,14 +40,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7793454363071766230}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 84bbd2fe99aae9a49bf5bce2a28c1446, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   audioSource: {fileID: 0}
   videoPlayer: {fileID: 0}
-  videoSO: {fileID: 11400000, guid: 0d7600e9d135162418112825da74e236, type: 2}
+  videoPlayer2: {fileID: 0}
+  videoSO: {fileID: 11400000, guid: 9b7a9378de9cad342a881efc136fb4b1, type: 2}
   optionsButton:
   - {fileID: 0}
   - {fileID: 0}
@@ -55,6 +57,34 @@ MonoBehaviour:
   prevButton: {fileID: 0}
   restartButton: {fileID: 0}
   unPauseButton: {fileID: 0}
+  nextPhaseButton: {fileID: 0}
   legenda: {fileID: 0}
-  result: {fileID: 0}
+  currentVideoPlayer: 0
+  managerUI: {fileID: 0}
   pause: 0
+--- !u!114 &8419949884306422110
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7793454363071766230}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5f8d73faa2dd8646b0e62d0d82dd9e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  videoPlayers:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  videoSO: {fileID: 11400000, guid: 9b7a9378de9cad342a881efc136fb4b1, type: 2}
+  optionsButton:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  nextButton: {fileID: 0}
+  nextPhaseButton: {fileID: 0}
+  vpIndex: 0
+  managerUI: {fileID: 0}

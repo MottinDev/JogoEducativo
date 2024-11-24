@@ -183,7 +183,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.3
-  far clip plane: 1000
+  far clip plane: 1
   field of view: 60
   orthographic: 1
   orthographic size: 5
@@ -228,6 +228,11 @@ Transform:
 --- !u!328 &94234854 stripped
 VideoPlayer:
   m_CorrespondingSourceObject: {fileID: 868564562162385875, guid: b3fa5021929a9aa428dcc6138553e531, type: 3}
+  m_PrefabInstance: {fileID: 2154498130721186910}
+  m_PrefabAsset: {fileID: 0}
+--- !u!328 &442033640 stripped
+VideoPlayer:
+  m_CorrespondingSourceObject: {fileID: 3441125593083528788, guid: b3fa5021929a9aa428dcc6138553e531, type: 3}
   m_PrefabInstance: {fileID: 2154498130721186910}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &467975710 stripped
@@ -415,17 +420,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1723112411 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3437538309519682874, guid: b3fa5021929a9aa428dcc6138553e531, type: 3}
-  m_PrefabInstance: {fileID: 2154498130721186910}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1725226950 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8725558321185587890, guid: b3fa5021929a9aa428dcc6138553e531, type: 3}
@@ -437,6 +431,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!328 &1844330527 stripped
+VideoPlayer:
+  m_CorrespondingSourceObject: {fileID: 6455400214624377694, guid: b3fa5021929a9aa428dcc6138553e531, type: 3}
+  m_PrefabInstance: {fileID: 2154498130721186910}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1976165368 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3004136244498940676, guid: b3fa5021929a9aa428dcc6138553e531, type: 3}
@@ -448,6 +447,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!328 &2053659574 stripped
+VideoPlayer:
+  m_CorrespondingSourceObject: {fileID: 1794440299665831721, guid: b3fa5021929a9aa428dcc6138553e531, type: 3}
+  m_PrefabInstance: {fileID: 2154498130721186910}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2154498130721186910
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -539,10 +543,6 @@ PrefabInstance:
     - target: {fileID: 3329135888138662261, guid: b3fa5021929a9aa428dcc6138553e531, type: 3}
       propertyPath: m_Name
       value: VideoCanvas
-      objectReference: {fileID: 0}
-    - target: {fileID: 3477033686457020987, guid: b3fa5021929a9aa428dcc6138553e531, type: 3}
-      propertyPath: m_RaycastTarget
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3512570043139416419, guid: b3fa5021929a9aa428dcc6138553e531, type: 3}
       propertyPath: m_Camera
@@ -667,17 +667,9 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6617580840886616564, guid: ee0cce4e4ddd7d94c9f24f9369135fb6, type: 3}
-      propertyPath: result
-      value: 
-      objectReference: {fileID: 1723112411}
-    - target: {fileID: 6617580840886616564, guid: ee0cce4e4ddd7d94c9f24f9369135fb6, type: 3}
       propertyPath: legenda
       value: 
       objectReference: {fileID: 916754078}
-    - target: {fileID: 6617580840886616564, guid: ee0cce4e4ddd7d94c9f24f9369135fb6, type: 3}
-      propertyPath: videoSO
-      value: 
-      objectReference: {fileID: 11400000, guid: 9b7a9378de9cad342a881efc136fb4b1, type: 2}
     - target: {fileID: 6617580840886616564, guid: ee0cce4e4ddd7d94c9f24f9369135fb6, type: 3}
       propertyPath: managerUI
       value: 
@@ -698,6 +690,10 @@ PrefabInstance:
       propertyPath: videoPlayer
       value: 
       objectReference: {fileID: 94234854}
+    - target: {fileID: 6617580840886616564, guid: ee0cce4e4ddd7d94c9f24f9369135fb6, type: 3}
+      propertyPath: videoPlayer2
+      value: 
+      objectReference: {fileID: 2053659574}
     - target: {fileID: 6617580840886616564, guid: ee0cce4e4ddd7d94c9f24f9369135fb6, type: 3}
       propertyPath: restartButton
       value: 
@@ -726,6 +722,46 @@ PrefabInstance:
       propertyPath: m_Name
       value: VideoManager
       objectReference: {fileID: 0}
+    - target: {fileID: 8419949884306422110, guid: ee0cce4e4ddd7d94c9f24f9369135fb6, type: 3}
+      propertyPath: managerUI
+      value: 
+      objectReference: {fileID: 1344390422}
+    - target: {fileID: 8419949884306422110, guid: ee0cce4e4ddd7d94c9f24f9369135fb6, type: 3}
+      propertyPath: nextButton
+      value: 
+      objectReference: {fileID: 1976165368}
+    - target: {fileID: 8419949884306422110, guid: ee0cce4e4ddd7d94c9f24f9369135fb6, type: 3}
+      propertyPath: nextPhaseButton
+      value: 
+      objectReference: {fileID: 63590460}
+    - target: {fileID: 8419949884306422110, guid: ee0cce4e4ddd7d94c9f24f9369135fb6, type: 3}
+      propertyPath: videoPlayers.Array.data[0]
+      value: 
+      objectReference: {fileID: 94234854}
+    - target: {fileID: 8419949884306422110, guid: ee0cce4e4ddd7d94c9f24f9369135fb6, type: 3}
+      propertyPath: videoPlayers.Array.data[1]
+      value: 
+      objectReference: {fileID: 2053659574}
+    - target: {fileID: 8419949884306422110, guid: ee0cce4e4ddd7d94c9f24f9369135fb6, type: 3}
+      propertyPath: videoPlayers.Array.data[2]
+      value: 
+      objectReference: {fileID: 1844330527}
+    - target: {fileID: 8419949884306422110, guid: ee0cce4e4ddd7d94c9f24f9369135fb6, type: 3}
+      propertyPath: videoPlayers.Array.data[3]
+      value: 
+      objectReference: {fileID: 442033640}
+    - target: {fileID: 8419949884306422110, guid: ee0cce4e4ddd7d94c9f24f9369135fb6, type: 3}
+      propertyPath: optionsButton.Array.data[0]
+      value: 
+      objectReference: {fileID: 875696753}
+    - target: {fileID: 8419949884306422110, guid: ee0cce4e4ddd7d94c9f24f9369135fb6, type: 3}
+      propertyPath: optionsButton.Array.data[1]
+      value: 
+      objectReference: {fileID: 756278624}
+    - target: {fileID: 8419949884306422110, guid: ee0cce4e4ddd7d94c9f24f9369135fb6, type: 3}
+      propertyPath: optionsButton.Array.data[2]
+      value: 
+      objectReference: {fileID: 796826366}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

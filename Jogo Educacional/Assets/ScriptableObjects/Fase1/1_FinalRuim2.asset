@@ -15,7 +15,7 @@ MonoBehaviour:
   videoClip: {fileID: 32900000, guid: d249f2dda8cbc2548a0c83f100b39daa, type: 3}
   options: []
   prevVideo: {fileID: 11400000, guid: 464411edcb86e264f8f93dc281148493, type: 2}
-  videoLoop: 0
+  videoLoop: 1
   videoPause: 0
   videoFinalBom: 0
   videoFinalRuim: 1

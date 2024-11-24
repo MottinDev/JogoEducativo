@@ -4,11 +4,27 @@ using UnityEngine;
 
 public class MinigameManager : MonoBehaviour
 {
-    [SerializeField] private Spawner _friendSpawner;
-    [SerializeField] private GameObject _friendVaccinatePrefab;
+    [SerializeField] float timeToVaccine;
+    [SerializeField] FriendMovement friend;
+    [SerializeField] private bool canUpgrade;
 
-    public void ToVaccinate()
+    private void Awake()
     {
-        _friendSpawner._Prefab = _friendVaccinatePrefab;
+        StartCoroutine(VaccineTimer());
     }
+
+    IEnumerator VaccineTimer()
+    {
+        yield return new WaitForSeconds(timeToVaccine);
+
+        canUpgrade = true;
+    }
+
+    public void UpgradeButton()
+    {
+        if (!canUpgrade) return;
+
+        friend.Upgrade();
+    }
+
 }

@@ -531,7 +531,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 868564562162385875, guid: b3fa5021929a9aa428dcc6138553e531, type: 3}
       propertyPath: m_AspectRatio
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1133487639403740162, guid: b3fa5021929a9aa428dcc6138553e531, type: 3}
       propertyPath: m_SkipOnDrop
@@ -547,7 +547,7 @@ PrefabInstance:
       objectReference: {fileID: 81318459}
     - target: {fileID: 3512570043139416419, guid: b3fa5021929a9aa428dcc6138553e531, type: 3}
       propertyPath: m_AdditionalShaderChannelsFlag
-      value: 0
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 6389093624830232936, guid: b3fa5021929a9aa428dcc6138553e531, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -557,6 +557,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1344390422}
+    - target: {fileID: 9081474541872814766, guid: b3fa5021929a9aa428dcc6138553e531, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1133487639403740162, guid: b3fa5021929a9aa428dcc6138553e531, type: 3}
     m_RemovedGameObjects: []
@@ -574,6 +578,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!328 &2154498130721186912 stripped
+VideoPlayer:
+  m_CorrespondingSourceObject: {fileID: 3441125593083528788, guid: b3fa5021929a9aa428dcc6138553e531, type: 3}
+  m_PrefabInstance: {fileID: 2154498130721186910}
+  m_PrefabAsset: {fileID: 0}
+--- !u!328 &2154498130721186913 stripped
+VideoPlayer:
+  m_CorrespondingSourceObject: {fileID: 6455400214624377694, guid: b3fa5021929a9aa428dcc6138553e531, type: 3}
+  m_PrefabInstance: {fileID: 2154498130721186910}
+  m_PrefabAsset: {fileID: 0}
+--- !u!328 &2154498130721186914 stripped
+VideoPlayer:
+  m_CorrespondingSourceObject: {fileID: 1794440299665831721, guid: b3fa5021929a9aa428dcc6138553e531, type: 3}
+  m_PrefabInstance: {fileID: 2154498130721186910}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4517576752260696443
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -735,6 +754,50 @@ PrefabInstance:
       propertyPath: m_Name
       value: VideoManager
       objectReference: {fileID: 0}
+    - target: {fileID: 8419949884306422110, guid: ee0cce4e4ddd7d94c9f24f9369135fb6, type: 3}
+      propertyPath: videoSO
+      value: 
+      objectReference: {fileID: 11400000, guid: 0d7600e9d135162418112825da74e236, type: 2}
+    - target: {fileID: 8419949884306422110, guid: ee0cce4e4ddd7d94c9f24f9369135fb6, type: 3}
+      propertyPath: managerUI
+      value: 
+      objectReference: {fileID: 1344390422}
+    - target: {fileID: 8419949884306422110, guid: ee0cce4e4ddd7d94c9f24f9369135fb6, type: 3}
+      propertyPath: nextButton
+      value: 
+      objectReference: {fileID: 1976165368}
+    - target: {fileID: 8419949884306422110, guid: ee0cce4e4ddd7d94c9f24f9369135fb6, type: 3}
+      propertyPath: nextPhaseButton
+      value: 
+      objectReference: {fileID: 2154498130721186911}
+    - target: {fileID: 8419949884306422110, guid: ee0cce4e4ddd7d94c9f24f9369135fb6, type: 3}
+      propertyPath: videoPlayers.Array.data[0]
+      value: 
+      objectReference: {fileID: 94234854}
+    - target: {fileID: 8419949884306422110, guid: ee0cce4e4ddd7d94c9f24f9369135fb6, type: 3}
+      propertyPath: videoPlayers.Array.data[1]
+      value: 
+      objectReference: {fileID: 2154498130721186914}
+    - target: {fileID: 8419949884306422110, guid: ee0cce4e4ddd7d94c9f24f9369135fb6, type: 3}
+      propertyPath: videoPlayers.Array.data[2]
+      value: 
+      objectReference: {fileID: 2154498130721186913}
+    - target: {fileID: 8419949884306422110, guid: ee0cce4e4ddd7d94c9f24f9369135fb6, type: 3}
+      propertyPath: videoPlayers.Array.data[3]
+      value: 
+      objectReference: {fileID: 2154498130721186912}
+    - target: {fileID: 8419949884306422110, guid: ee0cce4e4ddd7d94c9f24f9369135fb6, type: 3}
+      propertyPath: optionsButton.Array.data[0]
+      value: 
+      objectReference: {fileID: 875696753}
+    - target: {fileID: 8419949884306422110, guid: ee0cce4e4ddd7d94c9f24f9369135fb6, type: 3}
+      propertyPath: optionsButton.Array.data[1]
+      value: 
+      objectReference: {fileID: 756278624}
+    - target: {fileID: 8419949884306422110, guid: ee0cce4e4ddd7d94c9f24f9369135fb6, type: 3}
+      propertyPath: optionsButton.Array.data[2]
+      value: 
+      objectReference: {fileID: 796826366}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
