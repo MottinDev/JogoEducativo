@@ -12,12 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c1d66de004b79c47a134fe3f5c5f846, type: 3}
   m_Name: 2_3A
   m_EditorClassIdentifier: 
-  videoClip: {fileID: 32900000, guid: b5414138d53c7d245943b75ab4343b9a, type: 3}
+  videoClip: {fileID: 32900000, guid: 567cc1c166465f941ad3bc4866962007, type: 3}
   options:
-  - {fileID: 11400000, guid: b1650575acf3ed740ac20778ea110057, type: 2}
+  - {fileID: 11400000, guid: 29a75dbbc9bb30e4a8ce714b39b04741, type: 2}
   prevVideo: {fileID: 11400000, guid: 4f9f378603bc81a45b71be3cf75e7dc1, type: 2}
   videoLoop: 0
   videoPause: 0
+  videoFinalBom: 0
+  videoFinalRuim: 0
   legenda: {fileID: 0}
   resultado: {fileID: 0}
   audioClip: {fileID: 0}
