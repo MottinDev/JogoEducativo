@@ -48,6 +48,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocity: 1
+  minTamVariation: 0.4
+  maxTamVariation: 0.6
+  minTimeVariation: 0.1
+  maxTimeVariation: 0.3
 --- !u!212 &1604040838968030435
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -125,8 +129,8 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 4
+  m_CollisionDetection: 1
+  m_Constraints: 0
 --- !u!58 &8193184284676340148
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -161,4 +165,4 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.4
