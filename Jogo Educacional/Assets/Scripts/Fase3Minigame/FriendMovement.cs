@@ -17,6 +17,9 @@ public class FriendMovement : MonoBehaviour, IPointerClickHandler
     [SerializeField] private bool powerMode;
     [SerializeField] private bool upgraded;
 
+    [SerializeField] private float duracaoFade = 1f;         // Duração do fade em segundos
+    [SerializeField] private float tempoCorPreta = 2f;       // Tempo em que o sprite permanece preto
+
     [SerializeField] private float amplitude = 3.5f;
     [SerializeField] private float velocidadeRotate = 3f;
     private Quaternion startRotation;
@@ -72,12 +75,49 @@ public class FriendMovement : MonoBehaviour, IPointerClickHandler
         if(!spriteRenderer.enabled) spriteRenderer.enabled = true;
         if (!capsuleCollider2D.enabled) capsuleCollider2D.enabled = true;
 
-        spriteRenderer.sprite = upgradeSprite;
+        StartCoroutine(FazerFadeParaCor(Color.black, duracaoFade, tempoCorPreta,spriteRenderer));
 
-        this.transform.localScale = upgradedScale;
+
+        //spriteRenderer.sprite = upgradeSprite;
+
+        //this.transform.localScale = upgradedScale;
 
         upgraded = true;
         powerMode = true;
+    }
+
+    private IEnumerator FazerFadeParaCor(Color corDestino, float duracao, float tempoCorPreta, SpriteRenderer spriteRenderer)
+    {
+        Color corInicial = spriteRenderer.color; // Cor atual do sprite
+        Vector3 escalaInicial = this.transform.localScale;
+
+        float tempo = 0f;
+
+        // Fase 1: Fade para a cor de destino
+        while (tempo < duracao)
+        {
+            tempo += Time.deltaTime;
+            spriteRenderer.color = Color.Lerp(corInicial, corDestino, tempo / duracao);
+            transform.localScale = Vector3.Lerp(escalaInicial, upgradedScale, duracao);
+            yield return null;
+        }
+
+        spriteRenderer.color = corDestino;
+        spriteRenderer.sprite = upgradeSprite;
+        this.transform.localScale = upgradedScale;
+        // Aguarda o tempo definido antes de retornar à cor original
+        yield return new WaitForSeconds(tempoCorPreta);
+
+        // Fase 2: Fade de volta para a cor original
+        tempo = 0f;
+        while (tempo < duracao)
+        {
+            tempo += Time.deltaTime;
+            spriteRenderer.color = Color.Lerp(corDestino, corInicial, tempo / duracao);
+            yield return null;
+        }
+
+        spriteRenderer.color = corInicial;
     }
 
     public void OnPointerClick(PointerEventData eventData)
