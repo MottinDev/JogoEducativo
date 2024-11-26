@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
+    [SerializeField] private Sprite[] enemySprites;
+
     [SerializeField] private float velocity;
     [SerializeField] private float minTamVariation;
     [SerializeField] private float maxTamVariation;
@@ -12,8 +14,14 @@ public class EnemyMovement : MonoBehaviour
     private float xTam;
     private float yTam;
 
+    private SpriteRenderer spriteRenderer;
+
     private void Awake()
     {
+        spriteRenderer = GetComponent<SpriteRenderer>();
+
+        spriteRenderer.sprite = enemySprites[Random.Range(0,enemySprites.Length)];
+
         StartCoroutine(TimeTamVariation());
     }
 

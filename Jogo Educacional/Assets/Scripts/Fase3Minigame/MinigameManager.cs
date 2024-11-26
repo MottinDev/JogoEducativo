@@ -5,7 +5,7 @@ using UnityEngine;
 public class MinigameManager : MonoBehaviour
 {
     [SerializeField] float timeToVaccine;
-    [SerializeField] FriendMovement friend;
+    [SerializeField] FriendMovement[] friends;
     [SerializeField] private bool canUpgrade;
 
     private void Awake()
@@ -24,7 +24,10 @@ public class MinigameManager : MonoBehaviour
     {
         if (!canUpgrade) return;
 
-        friend.Upgrade();
+        for (int i = 0; i < friends.Length; i++)
+        {
+            friends[i].Upgrade();
+        }
     }
 
 }
