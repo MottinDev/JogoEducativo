@@ -25,11 +25,15 @@ public class FriendMovement : MonoBehaviour, IPointerClickHandler
     private Quaternion startRotation;
 
     private Rigidbody2D rb;
+    [SerializeField] private GameObject clickAnim;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+
         impulsePrepared = true;
+        clickAnim.SetActive(true);
+
         powerMode = false;
         upgraded = false;
         startRotation = transform.rotation;
@@ -48,7 +52,8 @@ public class FriendMovement : MonoBehaviour, IPointerClickHandler
 
         rb.AddForce(Vector2.right * impulseForce,ForceMode2D.Impulse);
         impulsePrepared = false;
-        if(!upgraded) powerMode = true;
+        clickAnim.SetActive(false);
+        if (!upgraded) powerMode = true;
         StartCoroutine(CooldownImpulse());
         StartCoroutine(CooldownPowerMode());
     }
@@ -65,14 +70,19 @@ public class FriendMovement : MonoBehaviour, IPointerClickHandler
         yield return new WaitForSeconds(cooldownImpulse);
 
         impulsePrepared = true;
+        clickAnim.SetActive(true);
+
     }
 
     public void Upgrade()
     {
         SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
+        SpriteRenderer spriteRendererChild = GetComponentInChildren<SpriteRenderer>();
         CapsuleCollider2D capsuleCollider2D = GetComponent<CapsuleCollider2D>();
+        
 
         if(!spriteRenderer.enabled) spriteRenderer.enabled = true;
+        if(!spriteRendererChild.enabled) spriteRendererChild.enabled = true;
         if (!capsuleCollider2D.enabled) capsuleCollider2D.enabled = true;
 
         StartCoroutine(FazerFadeParaCor(Color.black, duracaoFade, tempoCorPreta,spriteRenderer));

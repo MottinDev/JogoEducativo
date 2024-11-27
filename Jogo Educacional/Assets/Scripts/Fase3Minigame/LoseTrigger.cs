@@ -5,6 +5,7 @@ using UnityEngine;
 public class LoseTrigger : MonoBehaviour
 {
     private Rigidbody rb;
+    [SerializeField] FaseTresManager faseTresManager;
 
     private void Start()
     {
@@ -13,9 +14,10 @@ public class LoseTrigger : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.CompareTag("Friend"))
+        if(collision.CompareTag("Enemy"))
         {
             Debug.Log("perdeu");
+            faseTresManager.PerderJogo();
         }
     }
 

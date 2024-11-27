@@ -5,6 +5,7 @@ using UnityEngine;
 public class WinTrigger : MonoBehaviour
 {
     private Rigidbody rb;
+    [SerializeField] FaseTresManager faseTresManager;
 
     private void Start()
     {
@@ -16,6 +17,7 @@ public class WinTrigger : MonoBehaviour
         if (collision.CompareTag("Friend"))
         {
             Debug.Log("venceu");
+            faseTresManager.VencerJogo();
         }
     }
 }
