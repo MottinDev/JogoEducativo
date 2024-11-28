@@ -12,22 +12,26 @@ public class FaseTresManager : MonoBehaviour
     [SerializeField] private VideoClip loseVideo;
     [SerializeField] private VideoClip[] winVideo;
     [SerializeField] private Button nextButton;
+    [SerializeField] private Button iniciarButton;
     private bool isWinGame = false;
+    [SerializeField] private AudioSource audioSource;
 
     [SerializeField] private ManagerUI managerUI;
 
     // Start is called before the first frame update
     void Awake()
     {
+        audioSource.Stop();
         Time.timeScale = 0.0f;
         videoCanvas.gameObject.SetActive(true);
         nextButton.gameObject.SetActive(false);
         videoPlayer.loopPointReached += IniciarJogo;
-
+        iniciarButton.gameObject.SetActive(true) ;
     }
 
     public void IniciarJogo(VideoPlayer vp)
     {
+        audioSource.Play();
         videoPlayer.loopPointReached -= IniciarJogo;
         videoPlayer.Stop();
         videoCanvas.gameObject.SetActive(false);
@@ -36,6 +40,8 @@ public class FaseTresManager : MonoBehaviour
 
     public void PerderJogo()
     {
+        audioSource.Stop();
+        iniciarButton.gameObject.SetActive(false);
         isWinGame = false;
         Time.timeScale = 0.0f;
         videoCanvas.gameObject.SetActive(true);
@@ -48,6 +54,8 @@ public class FaseTresManager : MonoBehaviour
 
     public void VencerJogo()
     {
+        audioSource.Stop();
+        iniciarButton.gameObject.SetActive(false);
         isWinGame = true;
         videoCanvas.gameObject.SetActive(true);
         Time.timeScale = 0.0f;

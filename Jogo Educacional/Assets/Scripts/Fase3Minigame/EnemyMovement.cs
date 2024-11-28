@@ -16,8 +16,12 @@ public class EnemyMovement : MonoBehaviour
 
     private SpriteRenderer spriteRenderer;
 
+    [SerializeField] private AudioSource audioSource;
+
     private void Awake()
     {
+        audioSource = GameObject.FindWithTag("Audio").GetComponent<AudioSource>();
+
         spriteRenderer = GetComponent<SpriteRenderer>();
 
         spriteRenderer.sprite = enemySprites[Random.Range(0,enemySprites.Length)];
@@ -41,5 +45,10 @@ public class EnemyMovement : MonoBehaviour
 
             yield return new WaitForSeconds(Random.Range(minTimeVariation, maxTimeVariation));
         }
+    }
+
+    private void OnDestroy()
+    {
+        audioSource.PlayOneShot(audioSource.clip);
     }
 }

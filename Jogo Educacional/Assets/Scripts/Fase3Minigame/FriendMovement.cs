@@ -26,6 +26,7 @@ public class FriendMovement : MonoBehaviour, IPointerClickHandler
 
     private Rigidbody2D rb;
     [SerializeField] private GameObject clickAnim;
+    [SerializeField] private SpriteRenderer clickRenderer;
 
     private void Start()
     {
@@ -77,12 +78,11 @@ public class FriendMovement : MonoBehaviour, IPointerClickHandler
     public void Upgrade()
     {
         SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
-        SpriteRenderer spriteRendererChild = GetComponentInChildren<SpriteRenderer>();
         CapsuleCollider2D capsuleCollider2D = GetComponent<CapsuleCollider2D>();
         
 
         if(!spriteRenderer.enabled) spriteRenderer.enabled = true;
-        if(!spriteRendererChild.enabled) spriteRendererChild.enabled = true;
+        if (!clickRenderer.enabled) clickRenderer.enabled = true;
         if (!capsuleCollider2D.enabled) capsuleCollider2D.enabled = true;
 
         StartCoroutine(FazerFadeParaCor(Color.black, duracaoFade, tempoCorPreta,spriteRenderer));

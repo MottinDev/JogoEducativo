@@ -10,9 +10,15 @@ public class MinigameManager : MonoBehaviour
     [SerializeField] private bool canUpgrade;
     [SerializeField] private Slider slider;
     [SerializeField] private Button upgradeButton;
+    [SerializeField] private GameObject VaccineAnimClick;
+    [SerializeField] private Image fill;
+    [SerializeField] private Color initialColor;
+    [SerializeField] private Color upgradedColor;
     private void Awake()
     {
         upgradeButton.interactable = false;
+        VaccineAnimClick.SetActive(false);
+        fill.color = initialColor;
         StartCoroutine(VaccineTimer());
     }
 
@@ -32,6 +38,7 @@ public class MinigameManager : MonoBehaviour
 
         canUpgrade = true;
         upgradeButton.interactable = true;
+        VaccineAnimClick.SetActive(true);
     }
 
     public void UpgradeButton()
@@ -42,6 +49,9 @@ public class MinigameManager : MonoBehaviour
         {
             friends[i].Upgrade();
         }
+        upgradeButton.interactable = false;
+        VaccineAnimClick.SetActive(false);
+        fill.color = upgradedColor;
     }
 
 }
