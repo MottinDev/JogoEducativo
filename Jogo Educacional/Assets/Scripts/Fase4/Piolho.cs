@@ -33,7 +33,11 @@ public class Piolho : MonoBehaviour
     {
         if (rb.gravityScale > 0.0f)
         {
-            Destroy(this.gameObject);
+            //this.gameObject.SetActive(false);
+            if (gameObject.activeSelf)
+            {
+                Destroy(this.gameObject);
+            }
         }
     }
 }

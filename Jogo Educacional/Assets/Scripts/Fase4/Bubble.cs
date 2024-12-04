@@ -13,6 +13,10 @@ public class Bubble : MonoBehaviour
 
     private void OnBecameInvisible()
     {
-        Destroy(this.gameObject);
+        //this.gameObject.SetActive(false);
+        if (gameObject.activeSelf)
+        {
+            Destroy(this.gameObject);
+        }
     }
 }
