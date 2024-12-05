@@ -10,6 +10,13 @@ public class Piolho : MonoBehaviour
     private Rigidbody2D rb;
     private Collider2D collider2d;
 
+    [SerializeField] private float minTamVariation;
+    [SerializeField] private float maxTamVariation;
+    [SerializeField] private float minTimeVariation;
+    [SerializeField] private float maxTimeVariation;
+    private float xTam;
+    private float yTam;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -17,6 +24,8 @@ public class Piolho : MonoBehaviour
         collider2d = GetComponent<Collider2D>();
 
         initPos = transform.position;
+
+        StartCoroutine(TimeTamVariation());
     }
 
     // Update is called once per frame
@@ -29,8 +38,23 @@ public class Piolho : MonoBehaviour
         }
     }
 
+    IEnumerator TimeTamVariation()
+    {
+        while (true)
+        {
+            xTam = Random.Range(minTamVariation, maxTamVariation);
+            yTam = Random.Range(minTamVariation, maxTamVariation);
+
+            this.transform.localScale = new Vector3(xTam, yTam, 0.0f);
+
+            yield return new WaitForSeconds(Random.Range(minTimeVariation, maxTimeVariation));
+        }
+    }
+
     private void OnBecameInvisible()
     {
+        Debug.Log("destruir piolho");
+
         if (rb.gravityScale > 0.0f)
         {
             //this.gameObject.SetActive(false);

@@ -7,9 +7,16 @@ public class WinTrigger : MonoBehaviour
     private Rigidbody rb;
     [SerializeField] FaseTresManager faseTresManager;
 
-    private void Start()
+    private void Awake()
     {
         rb = GetComponent<Rigidbody>();
+
+        int screen = Screen.width;
+
+        Vector3 initPos = this.transform.position;
+
+        this.transform.position = new Vector3(initPos.x + screen, initPos.y, initPos.z);
+        
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
