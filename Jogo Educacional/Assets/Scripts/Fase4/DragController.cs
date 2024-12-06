@@ -62,6 +62,9 @@ public class DragController : MonoBehaviour
             if (hit.collider != null)
             {
                 Draggable draggable = hit.transform.gameObject.GetComponent<Draggable>();
+
+                if (!draggable.IsAtivado()) return;
+
                 if (draggable != null)
                 {
                     Debug.Log("começar a arrastar");

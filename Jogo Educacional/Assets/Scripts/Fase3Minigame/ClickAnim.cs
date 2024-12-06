@@ -11,10 +11,20 @@ public class ClickAnim : MonoBehaviour
     // Start is called before the first frame update
     private void OnEnable()
     {
-        StartCoroutine(ClickAnimator());
+        //StartClickAnim();
     }
 
     private void OnDisable()
+    {
+        StopClickAnim();
+    }
+
+    public void StartClickAnim()
+    {
+        StartCoroutine(ClickAnimator());
+    }
+
+    public void StopClickAnim()
     {
         StopCoroutine(ClickAnimator());
     }
