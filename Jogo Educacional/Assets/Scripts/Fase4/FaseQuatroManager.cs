@@ -20,6 +20,8 @@ public class FaseQuatroManager : MonoBehaviour
     [SerializeField] private Button _btnShampoo;
     //[SerializeField] private Button _btnShower;
 
+    [SerializeField] private AudioSource audioSource;
+
     private bool piolhoEliminated;
     private bool bubbleEliminated;
 
@@ -33,10 +35,14 @@ public class FaseQuatroManager : MonoBehaviour
 
         _pente.GetComponent<Draggable>().Ativar();
         _shower.GetComponent<Draggable>().Desativar();
+        _shower.GetComponent<SpriteRenderer>().color = Color.gray;
+        _shower.GetComponentInChildren<ParticleSystem>().Stop();
         //_btnPente.interactable = true;
         _btnShampoo.interactable = false;
         _btnShampoo.GetComponentInChildren<ClickAnim>().StopAllCoroutines();
         _btnShampoo.GetComponentInChildren<ClickAnim>().transform.localScale = Vector3.zero;
+        _btnShampoo.GetComponent<Image>().color = Color.gray;
+        
         //_btnShower.interactable = false;
     }
     void Update()
@@ -65,22 +71,25 @@ public class FaseQuatroManager : MonoBehaviour
         //_pente.SetActive(false);
 
         _shower.GetComponent<Draggable>().Ativar();
+        _shower.GetComponent<SpriteRenderer>().color = Color.white;
+        _shower.GetComponentInChildren<ParticleSystem>().Play();
 
         _btnShampoo.interactable = false;
         _btnShampoo.GetComponentInChildren<ClickAnim>().StopAllCoroutines();
         _btnShampoo.GetComponentInChildren<ClickAnim>().transform.localScale = Vector3.zero;
+        _btnShampoo.GetComponent<Image>().color = Color.gray;
         //_btnShower.interactable = true;
         //_shower.SetActive(true);
 
         _bubbleChild.SetActive(true);
     }
 
-    public void BtnShowerPressionated()
-    {
-        Debug.Log("btn_shower apertado");
+    //public void BtnShowerPressionated()
+    //{
+    //    Debug.Log("btn_shower apertado");
         //_btnPente.interactable = false;
         //_pente.SetActive(false);
-        _btnShampoo.interactable = false;
+    //    _btnShampoo.interactable = false;
 
         
         //_btnShower.interactable = false;
@@ -88,7 +97,7 @@ public class FaseQuatroManager : MonoBehaviour
         //_shower.SetActive(false);
 
         //_shower.SetActive(true);
-    }
+    //}
 
     private void PiolhosEliminated()
     {
@@ -96,6 +105,7 @@ public class FaseQuatroManager : MonoBehaviour
 
         _pente.transform.position = initPosPente;
         _pente.GetComponent<Draggable>().Desativar();
+        _pente.GetComponent<SpriteRenderer>().color = Color.gray;
 
         //_pente.SetActive(false);
 
@@ -103,6 +113,7 @@ public class FaseQuatroManager : MonoBehaviour
         //_pente.SetActive(false);
         _btnShampoo.interactable = true;
         _btnShampoo.GetComponentInChildren<ClickAnim>().StartClickAnim();
+        _btnShampoo.GetComponent<Image>().color = Color.white;
         //_btnShower.interactable = false;
         //_pente.SetActive(false);
     }

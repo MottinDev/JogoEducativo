@@ -5,6 +5,12 @@ using UnityEngine;
 public class Draggable : MonoBehaviour
 {
     [SerializeField] private bool ativado;
+    [SerializeField] private Vector3 initPos;
+
+    private void Start()
+    {
+        initPos = transform.position;
+    }
 
     public void Ativar()
     {
@@ -23,5 +29,10 @@ public class Draggable : MonoBehaviour
     public bool IsAtivado()
     {
         return ativado;
+    }
+
+    public void ReturnInitPos()
+    {
+        transform.position = initPos;
     }
 }

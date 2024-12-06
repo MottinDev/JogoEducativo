@@ -90,6 +90,7 @@ public class DragController : MonoBehaviour
         {
             Debug.Log("_isDragActive = false");
             _isDragActive = false;
+            _lastDragged.ReturnInitPos();
         }
     }
 }

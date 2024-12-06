@@ -11,8 +11,9 @@ GameObject:
   - component: {fileID: 3600738750754936635}
   - component: {fileID: 2767239518250477039}
   - component: {fileID: 6850567036259376186}
-  - component: {fileID: 7883583678618913929}
   - component: {fileID: 9091485322367860232}
+  - component: {fileID: -4063391956047791363}
+  - component: {fileID: 6361433600533238715}
   m_Layer: 0
   m_Name: Piolho
   m_TagString: Untagged
@@ -76,7 +77,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: ac66b10fa35f7f247bd61296ef7c2add, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2fb0f740df383874782dba2631274b03, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -114,8 +115,40 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
---- !u!58 &7883583678618913929
-CircleCollider2D:
+--- !u!114 &9091485322367860232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6539624216938188507}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40b7e8957169cd941aa59ada0075d9e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  initPos: {x: 0, y: 0, z: 0}
+  fallDistance: 1.5
+  minTamVariation: 0.4
+  maxTamVariation: 0.6
+  minTimeVariation: 0.1
+  maxTimeVariation: 0.3
+--- !u!114 &-4063391956047791363
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6539624216938188507}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36990c57a914fed4a84f502acf692384, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distancia: 1
+  velocidade: 2
+--- !u!70 &6361433600533238715
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -146,24 +179,6 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.5
---- !u!114 &9091485322367860232
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6539624216938188507}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 40b7e8957169cd941aa59ada0075d9e4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  initPos: {x: 0, y: 0, z: 0}
-  fallDistance: 1.5
-  minTamVariation: 0.4
-  maxTamVariation: 0.6
-  minTimeVariation: 0.1
-  maxTimeVariation: 0.3
+  m_Offset: {x: 0, y: -0.16250145}
+  m_Size: {x: 0.716986, y: 1.6464951}
+  m_Direction: 0
