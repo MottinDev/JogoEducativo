@@ -57,8 +57,12 @@ MonoBehaviour:
   impulsePrepared: 0
   powerMode: 0
   upgraded: 0
+  duracaoFade: 1
+  tempoCorPreta: 2
   amplitude: 3.5
   velocidadeRotate: 3
+  clickAnim: {fileID: 0}
+  clickRenderer: {fileID: 0}
 --- !u!212 &3293750113223261551
 SpriteRenderer:
   m_ObjectHideFlags: 0

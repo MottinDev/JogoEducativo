@@ -16,13 +16,26 @@ public class Bubble : MonoBehaviour
         this.transform.position = new Vector3(transform.position.x, transform.position.y - speed, transform.position.z);
     }
 
-    private void OnBecameInvisible()
+    private void Update()
     {
-        Debug.Log("destruir bolha");
-        //this.gameObject.SetActive(false);
-        if (gameObject.activeSelf)
+        if(transform.position.y <= -4.25f)
         {
-            Destroy(this.gameObject);
+            Debug.Log("destruir bolha");
+            //this.gameObject.SetActive(false);
+            if (gameObject.activeSelf)
+            {
+                Destroy(this.gameObject);
+            }
         }
     }
+
+    //private void OnBecameInvisible()
+    //{
+    //    Debug.Log("destruir bolha");
+        //this.gameObject.SetActive(false);
+    //    if (gameObject.activeSelf)
+    //    {
+    //        Destroy(this.gameObject);
+    //   }
+    //}
 }

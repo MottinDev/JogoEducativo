@@ -11,7 +11,7 @@ public class ClickAnim : MonoBehaviour
     // Start is called before the first frame update
     private void OnEnable()
     {
-        //StartClickAnim();
+        StartClickAnim();
     }
 
     private void OnDisable()

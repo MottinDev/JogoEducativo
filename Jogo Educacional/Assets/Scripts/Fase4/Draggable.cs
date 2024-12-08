@@ -14,6 +14,7 @@ public class Draggable : MonoBehaviour
 
     public void Ativar()
     {
+        //gameObject.GetComponentInChildren<ClickAnim>().gameObject.SetActive(true);
         ativado = true;
         gameObject.GetComponentInChildren<ClickAnim>().StartClickAnim();
         //gameObject.GetComponentInChildren<Transform>().localScale = Vector3.zero;
@@ -22,8 +23,9 @@ public class Draggable : MonoBehaviour
     public void Desativar()
     {
         ativado = false;
-        gameObject.GetComponentInChildren<ClickAnim>().StopAllCoroutines();
         gameObject.GetComponentInChildren<ClickAnim>().transform.localScale = Vector3.zero;
+        gameObject.GetComponentInChildren<ClickAnim>().StopAllCoroutines();
+        //gameObject.GetComponentInChildren<ClickAnim>().gameObject.SetActive(false);
     }
 
     public bool IsAtivado()

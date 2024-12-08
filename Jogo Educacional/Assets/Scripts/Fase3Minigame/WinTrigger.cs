@@ -6,17 +6,12 @@ public class WinTrigger : MonoBehaviour
 {
     private Rigidbody rb;
     [SerializeField] FaseTresManager faseTresManager;
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip victoryClip;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
-
-        int screen = Screen.width;
-
-        Vector3 initPos = this.transform.position;
-
-        this.transform.position = new Vector3(initPos.x + screen, initPos.y, initPos.z);
-        
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -24,7 +19,16 @@ public class WinTrigger : MonoBehaviour
         if (collision.CompareTag("Friend"))
         {
             Debug.Log("venceu");
-            faseTresManager.VencerJogo();
+            audioSource.PlayOneShot(victoryClip);
+            StartCoroutine(WaitPlayVictory());
         }
+    }
+
+    IEnumerator WaitPlayVictory()
+    {
+        yield return new WaitForSeconds(2);
+
+        Debug.Log("venceu");
+        faseTresManager.VencerJogo();
     }
 }

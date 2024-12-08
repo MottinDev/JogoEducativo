@@ -27,6 +27,9 @@ public class DragController : MonoBehaviour
             {
                 Debug.Log("drop");
                 Drop();
+
+               
+
                 return;
             }
         }
@@ -73,24 +76,34 @@ public class DragController : MonoBehaviour
                 }
             }
         }
+    }
+    void InitDrag()
+    {
+        Debug.Log("_isDragActive = true");
+        _isDragActive = true;
+    }
 
-        void InitDrag()
-        {
-            Debug.Log("_isDragActive = true");
-            _isDragActive = true;
-        }
+    void Drag()
+    {
+        Debug.Log("arrasto para nova posição");
 
-        void Drag()
-        {
-            Debug.Log("arrasto para nova posição");
-            _lastDragged.transform.position = new Vector2(_worldPosition.x, _worldPosition.y);
-        }
 
-        void Drop()
-        {
-            Debug.Log("_isDragActive = false");
-            _isDragActive = false;
-            _lastDragged.ReturnInitPos();
-        }
+        _lastDragged.transform.position = new Vector2(_worldPosition.x, _worldPosition.y);
+
+        if (_lastDragged.GetComponentInChildren<ClickAnim>() == null) return;
+
+        _lastDragged.GetComponentInChildren<ClickAnim>().StopAllCoroutines();
+        _lastDragged.GetComponentInChildren<ClickAnim>().transform.localScale = Vector3.zero;
+    }
+    public void Drop()
+    {
+        Debug.Log("_isDragActive = false");
+        _isDragActive = false;
+        _lastDragged.ReturnInitPos();
+
+
+        if(_lastDragged.GetComponentInChildren<ClickAnim>() != null)
+            if(_lastDragged.GetComponent<Draggable>().IsAtivado())
+                _lastDragged.GetComponentInChildren<ClickAnim>().StartClickAnim();
     }
 }
