@@ -5,6 +5,8 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 public class ButtonController : MonoBehaviour
 {
+    private const string PREFIXO_FLAG = "NIVEL_";
+
     [System.Serializable]
     public class ConfiguracaoBotao
     {
@@ -18,6 +20,8 @@ public class ButtonController : MonoBehaviour
     //public Button[] botoes; // Arraste os botões na Inspector aqui.
     private Button botaoSelecionado = null; // Botão atualmente selecionado.
 
+    public Sprite spriteBloqueado;
+
     // Sprites para o estado inicial e alterado
     //public Sprite[] spriteInicial;
     public Sprite spriteAlterado;
@@ -25,13 +29,22 @@ public class ButtonController : MonoBehaviour
 
     void Start()
     {
-        int i = 0;
+        int indexLevel = 1;
 
         foreach (var config in botoes)
         {
             // Atribuir eventos de clique a cada botão.
-            config.botao.GetComponent<Image>().sprite = config.spriteInicial;
-            config.botao.onClick.AddListener(() => OnBotaoClicado(config));
+            if (PlayerPrefs.GetInt(PREFIXO_FLAG + indexLevel) == 1)
+            {
+                config.botao.GetComponent<Image>().sprite = config.spriteInicial;
+                config.botao.onClick.AddListener(() => OnBotaoClicado(config));
+            }
+            else
+            {
+                config.botao.GetComponent<Image>().sprite = spriteBloqueado;
+            }
+
+            indexLevel++;
         }
     }
 

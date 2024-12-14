@@ -699,6 +699,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6478266834843616219, guid: 78d244085086f9c49946ce47e30f957d, type: 3}
+      propertyPath: parent
+      value: 
+      objectReference: {fileID: 1390460845}
+    - target: {fileID: 6478266834843616219, guid: 78d244085086f9c49946ce47e30f957d, type: 3}
       propertyPath: upgraded
       value: 1
       objectReference: {fileID: 0}
@@ -847,6 +851,7 @@ MonoBehaviour:
   nextButton: {fileID: 744860232}
   iniciarButton: {fileID: 771454004}
   audioSource: {fileID: 325227532}
+  indexDesbloquear: 4
   managerUI: {fileID: 394670525}
 --- !u!4 &430122947
 Transform:
@@ -1248,6 +1253,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6478266834843616219, guid: 78d244085086f9c49946ce47e30f957d, type: 3}
+      propertyPath: parent
+      value: 
+      objectReference: {fileID: 1390460845}
+    - target: {fileID: 6478266834843616219, guid: 78d244085086f9c49946ce47e30f957d, type: 3}
       propertyPath: upgraded
       value: 0
       objectReference: {fileID: 0}
@@ -1604,14 +1613,14 @@ PrefabInstance:
     - target: {fileID: 8951448941557415516, guid: b3fa5021929a9aa428dcc6138553e531, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 430122946}
+      objectReference: {fileID: 394670525}
     - target: {fileID: 8951448941557415516, guid: b3fa5021929a9aa428dcc6138553e531, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: NextPhaseButton
+      value: TelaSelecaoScene
       objectReference: {fileID: 0}
     - target: {fileID: 8951448941557415516, guid: b3fa5021929a9aa428dcc6138553e531, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: FaseTresManager, Assembly-CSharp
+      value: ManagerUI, Assembly-CSharp
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1133487639403740162, guid: b3fa5021929a9aa428dcc6138553e531, type: 3}
@@ -1632,8 +1641,33 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 742608124111900900, guid: b3fa5021929a9aa428dcc6138553e531, type: 3}
       insertIndex: -1
       addedObject: {fileID: 771454003}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6959930330469307668, guid: b3fa5021929a9aa428dcc6138553e531, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1829472047}
+    - targetCorrespondingSourceObject: {fileID: 6959930330469307668, guid: b3fa5021929a9aa428dcc6138553e531, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1829472048}
+    - targetCorrespondingSourceObject: {fileID: 6959930330469307668, guid: b3fa5021929a9aa428dcc6138553e531, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1829472049}
   m_SourcePrefab: {fileID: 100100000, guid: b3fa5021929a9aa428dcc6138553e531, type: 3}
+--- !u!1 &835418127 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6959930330469307668, guid: b3fa5021929a9aa428dcc6138553e531, type: 3}
+  m_PrefabInstance: {fileID: 835418126}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &835418128 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3477033686457020987, guid: b3fa5021929a9aa428dcc6138553e531, type: 3}
+  m_PrefabInstance: {fileID: 835418126}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 835418127}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &994889565
 GameObject:
   m_ObjectHideFlags: 0
@@ -2294,7 +2328,7 @@ Transform:
   m_GameObject: {fileID: 1390460844}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.5, y: -3.5, z: 0}
+  m_LocalPosition: {x: 0, y: -3.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2331,6 +2365,7 @@ MonoBehaviour:
   velocidadeRotate: 2
   clickAnim: {fileID: 0}
   clickRenderer: {fileID: 0}
+  parent: {fileID: 0}
 --- !u!61 &1390460847
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2605,6 +2640,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6478266834843616219, guid: 78d244085086f9c49946ce47e30f957d, type: 3}
+      propertyPath: parent
+      value: 
+      objectReference: {fileID: 1390460845}
+    - target: {fileID: 6478266834843616219, guid: 78d244085086f9c49946ce47e30f957d, type: 3}
       propertyPath: upgraded
       value: 1
       objectReference: {fileID: 0}
@@ -2797,6 +2836,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6478266834843616219, guid: 78d244085086f9c49946ce47e30f957d, type: 3}
+      propertyPath: parent
+      value: 
+      objectReference: {fileID: 1390460845}
     - target: {fileID: 6478266834843616219, guid: 78d244085086f9c49946ce47e30f957d, type: 3}
       propertyPath: upgraded
       value: 1
@@ -3620,6 +3663,121 @@ VideoPlayer:
   m_CorrespondingSourceObject: {fileID: 868564562162385875, guid: b3fa5021929a9aa428dcc6138553e531, type: 3}
   m_PrefabInstance: {fileID: 835418126}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1829472047
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 835418127}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 121e8fbd99b4b2a47890fe2125d1639b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  videoPlayer: {fileID: 0}
+  rawImage: {fileID: 0}
+--- !u!114 &1829472048
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 835418127}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 0
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 0
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 835418128}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1829472047}
+        m_TargetAssemblyTypeName: ControleVideoPlayer, Assembly-CSharp
+        m_MethodName: AlternarVideo
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!61 &1829472049
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 835418127}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1920, y: 1080}
+  m_EdgeRadius: 0
 --- !u!1001 &1884071599
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -24,6 +24,8 @@ public class FaseQuatroVideoManager : MonoBehaviour
 
     [SerializeField] private int currentVideoIndex = 0;
 
+    [SerializeField] private int indexDesbloquear;
+
     [SerializeField] FaseQuatroManager faseQuatroManager;
 
     // Start is called before the first frame update
@@ -80,6 +82,8 @@ public class FaseQuatroVideoManager : MonoBehaviour
 
     public void FinalizarJogo(VideoPlayer vp)
     {
+        PlayerPrefs.SetInt("NIVEL_" + indexDesbloquear, 1);
+
         videoPlayer.loopPointReached -= FinalizarJogo;
         videoPlayer.clip = winVideo[1];
         videoPlayer.Prepare();

@@ -64,7 +64,10 @@ public class DragController : MonoBehaviour
             RaycastHit2D hit = Physics2D.Raycast(_worldPosition, Vector2.zero);
             if (hit.collider != null)
             {
+
                 Draggable draggable = hit.transform.gameObject.GetComponent<Draggable>();
+
+                if(draggable == null) return;
 
                 if (!draggable.IsAtivado()) return;
 

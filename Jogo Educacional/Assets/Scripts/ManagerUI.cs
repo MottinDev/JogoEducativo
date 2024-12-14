@@ -8,16 +8,28 @@ public class ManagerUI : MonoBehaviour
     public Canvas TelaInicial;
     public Canvas TelaSelecao;
 
+    private void Start()
+    {
+        Screen.sleepTimeout = SleepTimeout.NeverSleep;
+    }
+
+    public void MostrarTelaInicial()
+    {
+        TelaInicial.gameObject.SetActive(true);
+        TelaSelecao.gameObject.SetActive(false);
+    }
+
     public void MostrarTelaSelecao()
     {
-        TelaInicial.gameObject.SetActive(false);
-        TelaSelecao.gameObject.SetActive(true);
+        SceneManager.LoadScene(1);
     }
-
-    public void MostarBotaoPlay()
+    
+    public void TelaSelecaoScene()
     {
-
+        SceneManager.LoadScene(1);
     }
+    
+
     public void IniciarFase(int index)
     {
         SceneManager.LoadScene(index);

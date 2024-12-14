@@ -28,6 +28,8 @@ public class FriendMovement : MonoBehaviour, IPointerClickHandler
     [SerializeField] private GameObject clickAnim;
     [SerializeField] private SpriteRenderer clickRenderer;
 
+    [SerializeField] private Transform parent;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -44,26 +46,50 @@ public class FriendMovement : MonoBehaviour, IPointerClickHandler
         float angle = Mathf.Sin(Time.time * velocidadeRotate) * amplitude;
         transform.rotation = startRotation * Quaternion.Euler(0, 0, angle);
 
-        this.transform.position += new Vector3(velocity * Time.deltaTime, 0, 0);
+        //this.transform.position += new Vector3(velocity * Time.deltaTime, 0, 0);
     }
     
     public void ImpulseFriend()
     {
         if(!impulsePrepared) return;
 
-        rb.AddForce(Vector2.right * impulseForce,ForceMode2D.Impulse);
+        if(rb.isKinematic)
+        {
+            StartCoroutine(UpgradeMove());
+        }
+        else
+        {
+            rb.AddForce(Vector2.right * impulseForce, ForceMode2D.Impulse);
+        }
+
+        
         impulsePrepared = false;
         clickAnim.SetActive(false);
-        if (!upgraded) powerMode = true;
+        powerMode = true;
         StartCoroutine(CooldownImpulse());
         StartCoroutine(CooldownPowerMode());
+    }
+
+    IEnumerator UpgradeMove()
+    {
+        float duration = 1f;
+        float tempoAtual = 0f;
+        float velocidade = 1f;
+
+        while (tempoAtual < duration)
+        {
+            tempoAtual += Time.deltaTime;
+            parent.Translate(Vector3.right * velocidade * Time.deltaTime);
+            yield return null;
+
+        }     
     }
 
     IEnumerator CooldownPowerMode()
     {
         yield return new WaitForSeconds(cooldownPowerMode);
 
-        if(!upgraded) powerMode = false;
+        powerMode = false;
     }
 
     IEnumerator CooldownImpulse()
@@ -91,7 +117,11 @@ public class FriendMovement : MonoBehaviour, IPointerClickHandler
         //spriteRenderer.sprite = upgradeSprite;
 
         //this.transform.localScale = upgradedScale;
-
+        rb.bodyType = RigidbodyType2D.Kinematic;
+        impulseForce = 1f;
+        rb.mass = 10000;
+        cooldownImpulse = 1;
+        cooldownPowerMode = 5;
         upgraded = true;
         powerMode = true;
     }

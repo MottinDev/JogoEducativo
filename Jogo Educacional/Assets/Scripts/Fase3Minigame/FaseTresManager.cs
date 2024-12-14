@@ -16,6 +16,8 @@ public class FaseTresManager : MonoBehaviour
     private bool isWinGame = false;
     [SerializeField] private AudioSource audioSource;
 
+    [SerializeField] private int indexDesbloquear;
+
     [SerializeField] private ManagerUI managerUI;
 
     // Start is called before the first frame update
@@ -74,12 +76,7 @@ public class FaseTresManager : MonoBehaviour
         videoPlayer.time = 0.0f;
         videoPlayer.Play();
         nextButton.gameObject.SetActive(true);
-    }
 
-    public void NextPhaseButton()
-    {
-        if (isWinGame) managerUI.ProximaFase();
-        else managerUI.ReiniciarFase();
+        PlayerPrefs.SetInt("NIVEL_" + indexDesbloquear, 1);
     }
-
 }

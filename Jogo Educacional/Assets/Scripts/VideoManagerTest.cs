@@ -18,8 +18,9 @@ public class VideoManagerTest : MonoBehaviour
     //public Button unPauseButton;
     public Button nextPhaseButton;
     //public Image legenda;
-    public int vpIndex = 0; 
+    public int vpIndex = 0;
 
+    [SerializeField] private int indexDesbloquear;
 
     [SerializeField] ManagerUI managerUI;
 
@@ -79,7 +80,7 @@ public class VideoManagerTest : MonoBehaviour
 
         //if(unPauseButton != null) unPauseButton.onClick.AddListener(PlayCurrentVideo);
 
-        if(nextPhaseButton != null) nextPhaseButton.onClick.AddListener(NextPhaseButton);
+        //aif(nextPhaseButton != null) nextPhaseButton.onClick.AddListener(NextPhaseButton);
 
         // Play the initial video
         vpIndex = 0;
@@ -146,6 +147,7 @@ public class VideoManagerTest : MonoBehaviour
             {
                 if (i == vpIndex) { continue; }
 
+                videoPlayers[i].GetComponent<Button>().interactable = false;
                 videoPlayers[i].gameObject.transform.SetLocalPositionAndRotation(new Vector3(0, 0, -1005), Quaternion.identity);
 
                 if (optionIndex < videoSO.options.Count)
@@ -194,11 +196,13 @@ public class VideoManagerTest : MonoBehaviour
         }
         else
         {
+            PlayerPrefs.SetInt("NIVEL_" + indexDesbloquear, 1);
             nextPhaseButton.gameObject.SetActive(false);
         }
 
         if (videoPlayers[vpIndex].clip != null)
         {
+            videoPlayers[vpIndex].GetComponent<Button>().interactable = true;
             videoPlayers[vpIndex].Play();
         }
         else

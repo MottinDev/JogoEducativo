@@ -14,13 +14,17 @@ public class FaseQuatroManager : MonoBehaviour
     [SerializeField] private GameObject _pente;
     [SerializeField] Vector3 initPosPente;
 
+    [SerializeField] private GameObject _shampoo;
+    [SerializeField] private Vector3 initPosShampoo;
+
+
     [SerializeField] private GameObject _shower;
     [SerializeField] private Vector3 initPosShower;
 
     [SerializeField] FaseTresManager faseTresManager;
 
     //[SerializeField] private Button _btnPente;
-    [SerializeField] private Button _btnShampoo;
+    //[SerializeField] private Button _btnShampoo;
     //[SerializeField] private Button _btnShower;
 
     [SerializeField] private AudioSource audioSource;
@@ -42,14 +46,19 @@ public class FaseQuatroManager : MonoBehaviour
         initPosShower = _shower.transform.position;
 
         _pente.GetComponent<Draggable>().Ativar();
+
         _shower.GetComponent<Draggable>().Desativar();
         _shower.GetComponent<SpriteRenderer>().color = Color.gray;
         _shower.GetComponentInChildren<ParticleSystem>().Stop();
+        
+        _shampoo.GetComponent<Draggable>().Desativar();
+        _shampoo.GetComponent<SpriteRenderer>().color = Color.gray;
+
         //_btnPente.interactable = true;
-        _btnShampoo.interactable = false;
-        _btnShampoo.GetComponentInChildren<ClickAnim>().StopAllCoroutines();
-        _btnShampoo.GetComponentInChildren<ClickAnim>().transform.localScale = Vector3.zero;
-        _btnShampoo.GetComponent<Image>().color = Color.gray;
+        //_btnShampoo.interactable = false;
+        //_btnShampoo.GetComponentInChildren<ClickAnim>().StopAllCoroutines();
+        //_btnShampoo.GetComponentInChildren<ClickAnim>().transform.localScale = Vector3.zero;
+        //_btnShampoo.GetComponent<Image>().color = Color.gray;
         //_btnShower.interactable = false;
     }
     void Update()
@@ -82,10 +91,15 @@ public class FaseQuatroManager : MonoBehaviour
         _shower.GetComponentInChildren<ParticleSystem>().Play();
         _shower.GetComponentInChildren<AudioSource>().Play();
 
-        _btnShampoo.interactable = false;
-        _btnShampoo.GetComponentInChildren<ClickAnim>().StopAllCoroutines();
-        _btnShampoo.GetComponentInChildren<ClickAnim>().transform.localScale = Vector3.zero;
-        _btnShampoo.GetComponent<Image>().color = Color.gray;
+        _shampoo.GetComponent<Draggable>().Desativar();
+        _shampoo.GetComponent<SpriteRenderer>().color = Color.gray;
+        _shampoo.transform.position = initPosShampoo;
+
+
+        //_btnShampoo.interactable = false;
+        //_btnShampoo.GetComponentInChildren<ClickAnim>().StopAllCoroutines();
+        //_btnShampoo.GetComponentInChildren<ClickAnim>().transform.localScale = Vector3.zero;
+        //_btnShampoo.GetComponent<Image>().color = Color.gray;
         //_btnShower.interactable = true;
         //_shower.SetActive(true);
 
@@ -158,9 +172,12 @@ public class FaseQuatroManager : MonoBehaviour
 
     private void HabilitarBtnShampoo()
     {
-        _btnShampoo.interactable = true;
-        _btnShampoo.GetComponentInChildren<ClickAnim>().StartClickAnim();
-        _btnShampoo.GetComponent<Image>().color = Color.white;
+        _shampoo.GetComponent<Draggable>().Ativar();
+        _shampoo.GetComponent<SpriteRenderer>().color = Color.white;
+
+        //_btnShampoo.interactable = true;
+        //_btnShampoo.GetComponentInChildren<ClickAnim>().StartClickAnim();
+        //_btnShampoo.GetComponent<Image>().color = Color.white;
     }
 
     private void BubblesEliminated()
