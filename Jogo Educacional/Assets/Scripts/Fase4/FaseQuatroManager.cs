@@ -127,11 +127,12 @@ public class FaseQuatroManager : MonoBehaviour
 
         _pente.GetComponent<Draggable>().Desativar();
         _pente.GetComponent<SpriteRenderer>().color = Color.gray;
-        _pente.transform.position = initPosPente;       
-
+        _pente.transform.position = initPosPente;
         faseQuatroVideoManager.audioSource.Stop();
-        faseQuatroVideoManager.MidVideoPlay();
 
+        audioSource.PlayOneShot(victoryClip);
+
+        StartCoroutine(WaitPlayMidVictory());
 
         //_pente.SetActive(false);
         
@@ -145,6 +146,16 @@ public class FaseQuatroManager : MonoBehaviour
         //_btnShower.interactable = false;
         //_pente.SetActive(false);
         
+    }
+
+    IEnumerator WaitPlayMidVictory()
+    {
+        yield return new WaitForSeconds(2);
+
+
+        Debug.Log("meio de jogo");
+        
+        faseQuatroVideoManager.MidVideoPlay();
     }
 
     public void StartWaitNarracao()

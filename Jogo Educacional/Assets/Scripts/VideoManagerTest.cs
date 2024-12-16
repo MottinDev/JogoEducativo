@@ -147,6 +147,7 @@ public class VideoManagerTest : MonoBehaviour
             {
                 if (i == vpIndex) { continue; }
 
+                videoPlayers[i].GetComponent<RawImage>().raycastTarget = false;
                 videoPlayers[i].GetComponent<Button>().interactable = false;
                 videoPlayers[i].gameObject.transform.SetLocalPositionAndRotation(new Vector3(0, 0, -1005), Quaternion.identity);
 
@@ -184,24 +185,32 @@ public class VideoManagerTest : MonoBehaviour
         if (videoSO.videoLoop)
         {
             videoPlayers[vpIndex].isLooping = true;
+            videoPlayers[vpIndex].GetComponent<RawImage>().raycastTarget = false;
         }
         else
         {
             videoPlayers[vpIndex].isLooping = false;
+            videoPlayers[vpIndex].GetComponent<RawImage>().raycastTarget = true;
         }
 
-        if(videoSO.videoFinalBom || videoSO.videoFinalRuim)
+        if(videoSO.videoFinalBom)
+        {
+            PlayerPrefs.SetInt("NIVEL_" + indexDesbloquear, 1);
+            nextPhaseButton.gameObject.SetActive(true);
+        }
+        else if(videoSO.videoFinalRuim)
         {
             nextPhaseButton.gameObject.SetActive(true);
         }
         else
         {
-            PlayerPrefs.SetInt("NIVEL_" + indexDesbloquear, 1);
             nextPhaseButton.gameObject.SetActive(false);
         }
 
         if (videoPlayers[vpIndex].clip != null)
         {
+            videoPlayers[vpIndex].GetComponent<RawImage>().color = Color.white;
+            
             videoPlayers[vpIndex].GetComponent<Button>().interactable = true;
             videoPlayers[vpIndex].Play();
         }
@@ -341,6 +350,7 @@ public class VideoManagerTest : MonoBehaviour
         if (videoSO.prevVideo == null) return;
 
         videoSO = videoSO.prevVideo;
+
         // PlayCurrentVideo(videoPlayer);
         //videoPlayer.clip = videoSO.videoClip;
         //videoPlayer.Prepare();
@@ -349,10 +359,15 @@ public class VideoManagerTest : MonoBehaviour
     // Skip to the next video without waiting for it to end (testing only)
     public void SkipToNextVideo()
     {
-        if (videoPlayers[vpIndex].isPlaying)
-        {
-            //videoPlayer.Stop();
-            OnVideoFinished(videoPlayers[vpIndex]);  // Simulate the video finishing to advance to the next one
-        }
+        //if (videoPlayers[vpIndex].isPlaying)
+        //{
+            
+            
+            //videoPlayers[vpIndex].Play();
+              // Simulate the video finishing to advance to the next one
+        //}
+
+        Debug.Log("iniciar proximo video");
+        OnVideoFinished(videoPlayers[vpIndex]);
     }
 }

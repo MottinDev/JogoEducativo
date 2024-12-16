@@ -6,6 +6,7 @@ public class ControleVideoPlayer : MonoBehaviour
 {
     [SerializeField] private VideoPlayer videoPlayer;
     [SerializeField] private RawImage rawImage;
+    [SerializeField] private Button btnNext;
 
     void Start()
     {
@@ -48,11 +49,13 @@ public class ControleVideoPlayer : MonoBehaviour
         if (videoPlayer.isPlaying)
         {
             videoPlayer.Pause();
+            btnNext.gameObject.SetActive(true);
             rawImage.color = Color.gray;
         }
         else
         {
             videoPlayer.Play();
+            btnNext.gameObject.SetActive(false);
             rawImage.color = Color.white;
         }
     }

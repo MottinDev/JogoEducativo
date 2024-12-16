@@ -48,7 +48,7 @@ public class FaseQuatroVideoManager : MonoBehaviour
     public void IniciarJogo()
     {
         Debug.Log("iniciar jogo");
-
+        videoPlayer.GetComponent<RawImage>().color = Color.white;
         audioSource.Play();
         //videoPlayer.loopPointReached -= IniciarJogo;
         videoPlayer.Stop();
@@ -58,6 +58,7 @@ public class FaseQuatroVideoManager : MonoBehaviour
 
     public void MidVideoPlay()
     {
+        videoPlayer.GetComponent<RawImage>().color = Color.white;
         videoCanvas.gameObject.SetActive(true);
         nextButton.gameObject.SetActive(false);
         skipButton.gameObject.SetActive(false);
@@ -68,6 +69,7 @@ public class FaseQuatroVideoManager : MonoBehaviour
 
     public void VencerJogo()
     {
+        videoPlayer.GetComponent<RawImage>().color = Color.white;
         audioSource.Stop();
         iniciarButton.gameObject.SetActive(false);
         isWinGame = true;
@@ -83,6 +85,11 @@ public class FaseQuatroVideoManager : MonoBehaviour
     public void FinalizarJogo(VideoPlayer vp)
     {
         PlayerPrefs.SetInt("NIVEL_" + indexDesbloquear, 1);
+
+        videoPlayer.GetComponent<RawImage>().color = Color.white;
+        videoPlayer.GetComponent<Button>().interactable = false;
+        videoPlayer.isLooping = true;
+        videoPlayer.GetComponent<RawImage>().raycastTarget = false;
 
         videoPlayer.loopPointReached -= FinalizarJogo;
         videoPlayer.clip = winVideo[1];
@@ -100,6 +107,9 @@ public class FaseQuatroVideoManager : MonoBehaviour
 
     private void PlayVideo(int index)
     {
+        skipButton.GetComponent<Image>().color = Color.gray;
+        videoPlayer.GetComponent<RawImage>().color = Color.white;
+
         if (index >= 0 && index < introVideo.Length)
         {
             videoPlayer.clip = introVideo[index];
@@ -116,13 +126,14 @@ public class FaseQuatroVideoManager : MonoBehaviour
 
         if(currentVideoIndex == 1)
         {
-            skipButton.gameObject.SetActive(true);
-        }
-
-        if(currentVideoIndex == 2)
-        {
+            iniciarButton.GetComponent<Image>().color = Color.white;
             iniciarButton.gameObject.SetActive(true);
         }
+
+        //if(currentVideoIndex == 2)
+        //{
+        //    iniciarButton.gameObject.SetActive(true);
+        //}
 
         if (currentVideoIndex > 3)
         {
@@ -140,5 +151,19 @@ public class FaseQuatroVideoManager : MonoBehaviour
         }
         // Toca o próximo vídeo
         PlayVideo(currentVideoIndex);
+    }
+
+    public void IrParaFinal()
+    {
+        if (videoPlayer != null && videoPlayer.clip != null)
+        {
+            // Define o tempo atual para o segundo final do clipe
+            videoPlayer.time = videoPlayer.length - 0.1f; // Ajusta para 1 segundo antes de terminar
+            videoPlayer.Play();
+        }
+        else
+        {
+            Debug.LogError("VideoPlayer ou VideoClip não configurado!");
+        }
     }
 }

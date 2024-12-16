@@ -9,6 +9,8 @@ public class WinTrigger : MonoBehaviour
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private AudioClip victoryClip;
 
+    private Coroutine waitPlayVictory;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
@@ -19,13 +21,15 @@ public class WinTrigger : MonoBehaviour
         if (collision.CompareTag("Friend"))
         {
             Debug.Log("venceu");
-            audioSource.PlayOneShot(victoryClip);
-            StartCoroutine(WaitPlayVictory());
+
+            if(waitPlayVictory == null)
+               waitPlayVictory = StartCoroutine(WaitPlayVictory());
         }
     }
 
     IEnumerator WaitPlayVictory()
     {
+        audioSource.PlayOneShot(victoryClip);
         yield return new WaitForSeconds(2);
 
         Debug.Log("venceu");

@@ -1894,7 +1894,7 @@ MonoBehaviour:
     indexFase: 4
   - botao: {fileID: 467370197}
     spriteInicial: {fileID: 21300000, guid: d0e48b1ab95c83c4c940f7403b0714d9, type: 3}
-    descricao: {fileID: 21300000, guid: 30d770833990fe24d89bd24153e73222, type: 3}
+    descricao: {fileID: 21300000, guid: 2ac2a337360d520468ffc50239de7e81, type: 3}
     indexFase: 5
   spriteBloqueado: {fileID: 21300000, guid: ba3a8c64d3344e84d84eef0e1f269545, type: 3}
   spriteAlterado: {fileID: 21300000, guid: 7be8b09f154024f41866d4d9225d99ef, type: 3}

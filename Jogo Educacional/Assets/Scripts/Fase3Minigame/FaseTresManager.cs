@@ -4,6 +4,7 @@ using System.Threading;
 using UnityEngine;
 using UnityEngine.Video;
 using UnityEngine.UI;
+using System;
 
 public class FaseTresManager : MonoBehaviour
 {
@@ -27,8 +28,9 @@ public class FaseTresManager : MonoBehaviour
         Time.timeScale = 0.0f;
         videoCanvas.gameObject.SetActive(true);
         nextButton.gameObject.SetActive(false);
+        videoPlayer.GetComponent<RawImage>().color = Color.white;
         videoPlayer.loopPointReached += IniciarJogo;
-        iniciarButton.gameObject.SetActive(true) ;
+        iniciarButton.gameObject.SetActive(false) ;
     }
 
     public void IniciarJogo(VideoPlayer vp)
@@ -51,6 +53,7 @@ public class FaseTresManager : MonoBehaviour
         videoPlayer.clip = loseVideo;
         videoPlayer.Prepare();
         videoPlayer.time = 0.0f;
+        videoPlayer.GetComponent<RawImage>().color = Color.white;
         videoPlayer.Play();
     }
 
@@ -64,12 +67,17 @@ public class FaseTresManager : MonoBehaviour
         videoPlayer.clip = winVideo[0];
         videoPlayer.Prepare();
         videoPlayer.time = 0.0f;
+        videoPlayer.GetComponent<RawImage>().color = Color.white;
         videoPlayer.Play();
         videoPlayer.loopPointReached += FinalizarJogo;
     }
 
     public void FinalizarJogo(VideoPlayer vp)
     {
+        videoPlayer.GetComponent<RawImage>().color = Color.white;
+        videoPlayer.GetComponent<Button>().interactable = false;
+        videoPlayer.isLooping = true;
+        videoPlayer.GetComponent<RawImage>().raycastTarget = false;
         videoPlayer.loopPointReached -= FinalizarJogo;
         videoPlayer.clip = winVideo[1];
         videoPlayer.Prepare();
@@ -78,5 +86,19 @@ public class FaseTresManager : MonoBehaviour
         nextButton.gameObject.SetActive(true);
 
         PlayerPrefs.SetInt("NIVEL_" + indexDesbloquear, 1);
+    }
+
+    public void IrParaFinal()
+    {
+        if (videoPlayer != null && videoPlayer.clip != null)
+        {
+            // Define o tempo atual para o segundo final do clipe
+            videoPlayer.time = videoPlayer.length - 0.1f; // Ajusta para 1 segundo antes de terminar
+            videoPlayer.Play();
+        }
+        else
+        {
+            Debug.LogError("VideoPlayer ou VideoClip não configurado!");
+        }
     }
 }
