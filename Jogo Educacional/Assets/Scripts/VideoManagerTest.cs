@@ -135,7 +135,8 @@ public class VideoManagerTest : MonoBehaviour
         Debug.Log("preparando vpindex: " + vpIndex);
         //videoPlayers[vpIndex].clip = videoSO.videoClip;
         //videoPlayers[vpIndex].Prepare();
-        videoPlayers[vpIndex].gameObject.transform.SetLocalPositionAndRotation(new Vector3(0,0,0), Quaternion.identity);
+        //videoPlayers[vpIndex].gameObject.transform.SetLocalPositionAndRotation(new Vector3(0,0,0), Quaternion.identity);
+        videoPlayers[vpIndex].GetComponent<RawImage>().color = Color.white;
 
         if (videoSO.options != null && videoSO.options.Count > 0)
         {
@@ -149,7 +150,10 @@ public class VideoManagerTest : MonoBehaviour
 
                 videoPlayers[i].GetComponent<RawImage>().raycastTarget = false;
                 videoPlayers[i].GetComponent<Button>().interactable = false;
-                videoPlayers[i].gameObject.transform.SetLocalPositionAndRotation(new Vector3(0, 0, -1005), Quaternion.identity);
+
+                videoPlayers[i].GetComponent<RawImage>().color = Color.clear;
+                
+                //videoPlayers[i].gameObject.transform.SetLocalPositionAndRotation(new Vector3(0, 0, -1005), Quaternion.identity);
 
                 if (optionIndex < videoSO.options.Count)
                 {
@@ -248,7 +252,10 @@ public class VideoManagerTest : MonoBehaviour
 
         vp.Stop();
         vp.clip = null;
-        vp.gameObject.transform.SetLocalPositionAndRotation(new Vector3(0, 0, -1005), Quaternion.identity);
+        
+        //vp.gameObject.transform.SetLocalPositionAndRotation(new Vector3(0, 0, -1005), Quaternion.identity);
+
+        vp.GetComponent<RawImage>().color = Color.clear;
 
         if (videoSO.options[0] != null)
         {
