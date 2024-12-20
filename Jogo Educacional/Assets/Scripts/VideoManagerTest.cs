@@ -138,21 +138,22 @@ public class VideoManagerTest : MonoBehaviour
         //videoPlayers[vpIndex].gameObject.transform.SetLocalPositionAndRotation(new Vector3(0,0,0), Quaternion.identity);
         videoPlayers[vpIndex].GetComponent<RawImage>().color = Color.white;
 
-        if (videoSO.options != null && videoSO.options.Count > 0)
+        int optionIndex = 0;
+
+        for (int i = 0; i < videoPlayers.Length; i++)
         {
-            Debug.Log("preparando demais videoPlayers");
-            nextPhaseButton.gameObject.SetActive(false);
+            if (i == vpIndex) { continue; }
 
-            int optionIndex = 0;
-            for (int i = 0; i < videoPlayers.Length; i++)
+            videoPlayers[i].GetComponent<RawImage>().raycastTarget = false;
+            videoPlayers[i].GetComponent<Button>().interactable = false;
+
+            videoPlayers[i].GetComponent<RawImage>().color = Color.clear;
+
+            if (videoSO.options != null && videoSO.options.Count > 0)
             {
-                if (i == vpIndex) { continue; }
+                Debug.Log("preparando demais videoPlayers");
+                nextPhaseButton.gameObject.SetActive(false);
 
-                videoPlayers[i].GetComponent<RawImage>().raycastTarget = false;
-                videoPlayers[i].GetComponent<Button>().interactable = false;
-
-                videoPlayers[i].GetComponent<RawImage>().color = Color.clear;
-                
                 //videoPlayers[i].gameObject.transform.SetLocalPositionAndRotation(new Vector3(0, 0, -1005), Quaternion.identity);
 
                 if (optionIndex < videoSO.options.Count)
@@ -170,17 +171,8 @@ public class VideoManagerTest : MonoBehaviour
                 }
                 optionIndex++;
             }
-            PlayCurrentVideo();
         }
-        else
-        {
-            // Multiple options; display buttons for player interaction
-            PlayCurrentVideo();
-            //DisplayOptions();
-        }
-
-
-
+        PlayCurrentVideo();
     }
     void PlayCurrentVideo()
     {
