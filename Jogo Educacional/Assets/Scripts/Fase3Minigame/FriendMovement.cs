@@ -120,7 +120,7 @@ public class FriendMovement : MonoBehaviour, IPointerClickHandler
         rb.bodyType = RigidbodyType2D.Kinematic;
         impulseForce = 1f;
         rb.mass = 10000;
-        cooldownImpulse = 1;
+        //cooldownImpulse = 1;
         cooldownPowerMode = 5;
         upgraded = true;
         powerMode = true;
